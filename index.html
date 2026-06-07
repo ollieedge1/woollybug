@@ -3,13 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Woolly Bug — Fly Tying Inventory. Tie More. Worry Less.</title>
-<meta name="description" content="Woolly Bug is the fly tying inventory app designed for tiers, by a tier. Track every material, organize by pattern and recipe, and know when to restock before you run out.">
+<title>Woolly Bug — Fly Tying Inventory App, Materials Organiser &amp; Hook Finder</title>
+<meta name="description" content="Woolly Bug is the only app built for fly tiers to organise materials, save patterns and compare 650+ hooks across 14 brands. A complete fly tying inventory, materials organiser, pattern keeper and hook comparison tool for iPhone &amp; iPad.">
+<meta name="keywords" content="fly tying inventory, fly tying materials organiser, fly tying app, fly fishing hooks, hook comparison chart, fly tying pattern keeper, fly tying collection tracker">
+<link rel="canonical" href="https://woollybug.com/">
 
 <!-- Open Graph -->
-<meta property="og:title" content="Woolly Bug — Organize Your Fly Tying Inventory">
-<meta property="og:description" content="Track all your materials in one place. Organize by fly pattern. Know when to restock. Tie more, worry less.">
+<meta property="og:title" content="Woolly Bug — Fly Tying Inventory, Materials Organiser &amp; Hook Finder">
+<meta property="og:description" content="The only app built for fly tiers to organise materials, save patterns and compare 650+ hooks across 14 brands — all in one place.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://woollybug.com/">
 <meta property="og:image" content="assets/icon.png">
 
 <link rel="icon" type="image/png" href="assets/icon.png">
@@ -81,8 +84,18 @@ header.nav{
 .btn-accent{background:var(--accent);color:#382a18}
 .btn-accent:hover{background:var(--accent-dark)}
 .nav-cta{display:flex;align-items:center;gap:14px}
-.hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px}
-.hamburger span{display:block;width:24px;height:2.5px;background:var(--brown);border-radius:2px;margin:5px 0;transition:.2s}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:9px;border-radius:10px;transition:background .15s}
+.hamburger:hover{background:rgba(45,37,32,.06)}
+.hamburger span{display:block;width:24px;height:2.5px;background:var(--brown);border-radius:2px;margin:5px 0;
+  transition:transform .26s ease, opacity .2s ease}
+.hamburger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+.menu-cta{display:none}
+.nav-overlay{position:fixed;inset:0;background:rgba(45,37,32,.42);backdrop-filter:blur(2px);
+  opacity:0;visibility:hidden;transition:opacity .26s ease, visibility .26s ease;z-index:40}
+.nav-overlay.show{opacity:1;visibility:visible}
+body.menu-open{overflow:hidden}
 
 /* App Store badge (official image) */
 .as-badge{display:inline-block;line-height:0;transition:transform .12s ease, opacity .15s}
@@ -90,7 +103,7 @@ header.nav{
 .as-badge:active{transform:scale(.97)}
 .as-badge img{height:48px;width:auto;display:block}
 .cta .as-badge img{height:56px}
-.hero-cta .as-badge img{height:96px}
+.hero-cta .as-badge img{height:60px}
 
 /* legacy text badge */
 .appstore{display:inline-flex;align-items:center;gap:11px;background:var(--brown);color:#fff;
@@ -103,9 +116,9 @@ header.nav{
 
 /* ---------- Hero ---------- */
 .hero{position:relative;overflow:hidden;background:#2d2520}
-.hero-bg{position:absolute;inset:0;background:url(assets/hero-bg.jpg) center right/cover no-repeat}
+.hero-bg{position:absolute;inset:0;background:url(assets/hero-photo.jpg) center right/cover no-repeat}
 .hero-bg:after{content:"";position:absolute;inset:0;
-  background:linear-gradient(100deg,var(--cream) 0%,var(--cream) 24%,rgba(254,247,239,.92) 33%,rgba(254,247,239,.45) 44%,rgba(254,247,239,0) 56%)}
+  background:linear-gradient(100deg,var(--cream) 0%,var(--cream) 17%,rgba(254,247,239,.78) 29%,rgba(254,247,239,.25) 42%,rgba(254,247,239,0) 55%)}
 .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.02fr .96fr .82fr;gap:34px;align-items:center;
   min-height:620px;padding:54px 0}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12.5px;
@@ -280,6 +293,12 @@ footer{background:var(--brown);color:#bcae9c;padding:60px 0 34px}
 .foot-brand{max-width:300px}
 .foot-brand .brand{color:var(--text-dark);margin-bottom:14px}
 .foot-brand p{font-size:14.5px;line-height:1.65}
+.foot-social{display:flex;gap:12px;margin-top:18px}
+.foot-social a{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);transition:background .15s, transform .12s}
+.foot-social a:hover{background:var(--accent);transform:translateY(-2px)}
+.foot-social svg{width:18px;height:18px;fill:#e3d6c4;transition:fill .15s}
+.foot-social a:hover svg{fill:#2d2520}
 .foot-cols{display:flex;gap:70px;flex-wrap:wrap}
 .fcol h5{font-family:var(--display);font-weight:700;color:var(--text-dark);font-size:15px;margin-bottom:14px;letter-spacing:.5px}
 .fcol a{display:block;color:#bcae9c;font-size:14.5px;font-weight:600;margin-bottom:10px;transition:color .15s}
@@ -315,12 +334,21 @@ footer{background:var(--brown);color:#bcae9c;padding:60px 0 34px}
   .tier-points{max-width:420px;margin-left:auto;margin-right:auto}
 }
 @media(max-width:760px){
-  .nav-links{position:fixed;inset:70px 0 auto 0;flex-direction:column;background:var(--cream);
-    padding:24px;gap:18px;border-bottom:1px solid rgba(45,37,32,.1);box-shadow:var(--shadow-sm);
-    transform:translateY(-130%);transition:transform .28s ease;align-items:stretch}
-  .nav-links.show{transform:none}
-  .nav-links a.link{font-size:18px}
-  .nav-cta .as-badge img{height:40px}
+  .nav-links{position:fixed;inset:70px 10px auto 10px;flex-direction:column;align-items:stretch;
+    background:var(--cream);backdrop-filter:saturate(180%) blur(16px);
+    padding:10px;gap:2px;border:1px solid rgba(45,37,32,.08);border-radius:20px;
+    box-shadow:var(--shadow);z-index:45;
+    opacity:0;visibility:hidden;transform:translateY(-12px) scale(.98);transform-origin:top;
+    transition:opacity .24s ease, transform .26s cubic-bezier(.2,.8,.2,1), visibility .26s}
+  .nav-links.show{opacity:1;visibility:visible;transform:none}
+  .nav-links a.link{font-size:17px;font-weight:700;color:var(--text);padding:15px 16px;border-radius:12px;
+    display:flex;align-items:center;justify-content:space-between;transition:background .15s, color .15s}
+  .nav-links a.link::after{content:"›";font-size:20px;color:var(--accent);opacity:.7;transform:translateY(-1px)}
+  .nav-links a.link:active{background:rgba(212,165,116,.16)}
+  .nav-links a.link:not(:last-of-type){border-bottom:1px solid rgba(45,37,32,.06)}
+  .menu-cta{display:flex;justify-content:center;padding:14px 8px 8px;margin-top:4px}
+  .menu-cta img{height:50px}
+  .nav-cta .as-badge{display:none}
   .hamburger{display:block}
 }
 @media(max-width:480px){
@@ -342,12 +370,14 @@ footer{background:var(--brown);color:#bcae9c;padding:60px 0 34px}
       <a class="link" href="#tier">Why Woolly Bug</a>
       <a class="link" href="blog/">Blog</a>
       <a class="link" href="#faq">FAQ</a>
+      <a class="menu-cta" href="https://apps.apple.com/gb/app/fly-tying-woolly-bug/id6757226309" target="_blank" rel="noopener"><img src="assets/app-store-badge.svg" alt="Download on the App Store"></a>
     </nav>
     <div class="nav-cta">
       <a class="as-badge" href="https://apps.apple.com/gb/app/fly-tying-woolly-bug/id6757226309" target="_blank" rel="noopener"><img src="assets/app-store-badge.svg" alt="Download on the App Store"></a>
-      <button class="hamburger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+      <button class="hamburger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
     </div>
   </div>
+  <div class="nav-overlay" id="navOverlay"></div>
 </header>
 
 <a id="top"></a>
@@ -363,8 +393,8 @@ footer{background:var(--brown);color:#bcae9c;padding:60px 0 34px}
         <img src="assets/icon.png" alt="Woolly Bug">
         <div class="wm"><span class="l1">Woolly Bug</span></div>
       </div>
-      <h1>Hook comparison and<br><span class="ln2">materials tracker</span></h1>
-      <p class="sub">The fly tying inventory app designed for tiers, by a tier.</p>
+      <h1>Organise materials.<br>Save patterns.<br><span class="ln2">Compare hooks.</span></h1>
+      <p class="sub">The only app built for fly tiers to do it all — in one place.</p>
       <div class="hero-cta">
         <a class="as-badge" href="https://apps.apple.com/gb/app/fly-tying-woolly-bug/id6757226309" target="_blank" rel="noopener"><img src="assets/app-store-badge.svg" alt="Download on the App Store"></a>
       </div>
@@ -381,19 +411,19 @@ footer{background:var(--brown);color:#bcae9c;padding:60px 0 34px}
     <div class="hl-feats reveal">
       <div class="hl-feat">
         <span class="circle"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>
-        <span class="lbl">Track all your materials<br>in one place</span>
+        <span class="lbl">Know exactly what<br>materials you own</span>
       </div>
       <div class="hl-feat">
-        <span class="circle"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 8c3 0 5 1.5 7 4 2-2.5 4-4 7-4"/><path d="M5 14c3 0 5 1.2 7 3 2-1.8 4-3 7-3"/></svg></span>
-        <span class="lbl">Organize by fly pattern<br>and recipe</span>
+        <span class="circle"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7c4 0 6 4 9 4s5-4 9-4"/><path d="M3 17c4 0 6-4 9-4s5 4 9 4"/></svg></span>
+        <span class="lbl">Compare 650+ hooks<br>across 14 brands</span>
       </div>
       <div class="hl-feat">
         <span class="circle"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M10 21a2 2 0 0 0 4 0"/></svg></span>
-        <span class="lbl">Know when to restock<br>before you run out</span>
+        <span class="lbl">Never re-buy a<br>material again</span>
       </div>
       <div class="hl-feat">
-        <span class="circle"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V10M10 19V5M16 19v-7M22 19H2"/></svg></span>
-        <span class="lbl">Save time &amp; money<br>at the vise</span>
+        <span class="circle"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M11 19h2"/></svg></span>
+        <span class="lbl">Syncs across<br>iPhone &amp; iPad</span>
       </div>
     </div>
 
@@ -404,30 +434,40 @@ footer{background:var(--brown);color:#bcae9c;padding:60px 0 34px}
 <section class="features" id="features">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow">Everything in one place</span>
-      <h2>Built for the way you tie</h2>
-      <p>Woolly Bug keeps your bench organized so you can spend less time digging through drawers and more time at the vise.</p>
+      <span class="eyebrow">Everything in one app</span>
+      <h2>Everything a fly tier needs</h2>
+      <p>From your first hook to your hundredth pattern, Woolly Bug keeps your whole bench organised and at your fingertips.</p>
     </div>
     <div class="feat-grid">
       <div class="feat reveal">
         <div class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
-        <h3>Track every material</h3>
-        <p>Hooks, threads, dubbing, beads, hackle and more — catalog your whole bench with sizes, colors and quantities in one searchable library.</p>
+        <h3>Material inventory</h3>
+        <p>Track every feather, dubbing, hook and thread with photos, quantities and storage locations — your whole bench in one searchable library.</p>
       </div>
       <div class="feat reveal">
-        <div class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 8c3 0 5 1.5 7 4 2-2.5 4-4 7-4"/><path d="M5 14c3 0 5 1.2 7 3 2-1.8 4-3 7-3"/></svg></div>
-        <h3>Organize by pattern &amp; recipe</h3>
-        <p>Save your go-to patterns with full material recipes. Woolly Bug tells you instantly whether you've got everything to tie a dozen.</p>
+        <div class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/><path d="M8 11h6M11 8v6"/></svg></div>
+        <h3>Hook Finder</h3>
+        <p>Search 650+ hooks from 14 brands by shank, gape, wire weight and eye type — and find equivalent alternatives in seconds.</p>
       </div>
       <div class="feat reveal">
-        <div class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M10 21a2 2 0 0 0 4 0"/></svg></div>
-        <h3>Know when to restock</h3>
-        <p>Set low-stock thresholds and get a clear heads-up before you run out — so you never start a session missing a key material.</p>
+        <div class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h2l2 12h10l2-8H7"/><circle cx="9" cy="20" r="1.3"/><circle cx="18" cy="20" r="1.3"/></svg></div>
+        <h3>Shopping basket</h3>
+        <p>Build shopping lists linked to your inventory. Mark items purchased and restock — so you never buy a duplicate spool again.</p>
       </div>
       <div class="feat reveal">
-        <div class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V10M10 19V5M16 19v-7M22 19H2"/></svg></div>
-        <h3>Save time &amp; money</h3>
-        <p>Stop buying duplicates and forgetting what you own. A clear picture of your stash means smarter shopping and a tidier bench.</p>
+        <div class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="11" height="14" rx="2"/><rect x="15" y="9" width="6" height="11" rx="1.5"/><path d="M7 21h4"/></svg></div>
+        <h3>Multi-device sync</h3>
+        <p>Cloud sync plus WiFi-direct between iPhone and iPad — your stash stays in step at the bench or the shop, even without internet.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M9 14l3 3 3-3M12 11v6"/></svg></div>
+        <h3>CSV import &amp; export</h3>
+        <p>Bulk-manage your inventory in Excel or Numbers, with smart de-duplication when you re-import. Your data, always yours.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h3"/><path d="M14.5 14.5h-4M12.5 12.5v4"/></svg></div>
+        <h3>Quick add &amp; clone</h3>
+        <p>Clone materials and use Save &amp; Add Another for fast batch entry — build your whole library in minutes, not evenings.</p>
       </div>
     </div>
   </div>
@@ -488,6 +528,31 @@ footer{background:var(--brown);color:#bcae9c;padding:60px 0 34px}
   </div>
 </section>
 
+<!-- ============ TESTIMONIALS (ready to populate) ============
+     Uncomment and replace with REAL reviews once you have them (GTM target: 4.5★+).
+     Do not use placeholder/fake quotes on the live site.
+<section class="features" id="reviews">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Loved by fly tiers</span>
+      <h2>What tyers are saying</h2>
+    </div>
+    <div class="feat-grid">
+      <div class="feat reveal">
+        <div class="stars" style="color:var(--accent);letter-spacing:2px;font-size:18px;margin-bottom:10px">★★★★★</div>
+        <p>"REAL REVIEW QUOTE HERE."</p>
+        <h3 style="font-size:16px;margin-top:14px">Reviewer name · App Store</h3>
+      </div>
+      <div class="feat reveal">
+        <div class="stars" style="color:var(--accent);letter-spacing:2px;font-size:18px;margin-bottom:10px">★★★★★</div>
+        <p>"REAL REVIEW QUOTE HERE."</p>
+        <h3 style="font-size:16px;margin-top:14px">Reviewer name · r/flytying</h3>
+      </div>
+    </div>
+  </div>
+</section>
+============ END TESTIMONIALS ============ -->
+
 <!-- ============ FAQ ============ -->
 <section id="faq">
   <div class="wrap">
@@ -539,7 +604,13 @@ footer{background:var(--brown);color:#bcae9c;padding:60px 0 34px}
     <div class="foot-grid">
       <div class="foot-brand">
         <a href="#top" class="brand"><img src="assets/icon.png" alt="">Woolly Bug</a>
-        <p>The fly tying inventory app designed for tiers, by a tier. Track your materials, organize by pattern, and never run out mid-session again.</p>
+        <p>The fly tying inventory app designed for tiers, by a tier. Track your materials, organise by pattern, and never run out mid-session again.</p>
+        <div class="foot-social">
+          <a href="https://instagram.com/woollybugapp" target="_blank" rel="noopener" aria-label="Woolly Bug on Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s0 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58 0-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.2 15.58 2.2 15.2 2.2 12s0-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.2 8.8 2.2 12 2.2m0 1.95c-3.15 0-3.5 0-4.74.07-1.14.05-1.76.24-2.17.4-.55.21-.94.47-1.35.88-.41.41-.67.8-.88 1.35-.16.41-.35 1.03-.4 2.17C2.4 8.5 2.4 8.85 2.4 12s0 3.5.06 4.74c.05 1.14.24 1.76.4 2.17.21.55.47.94.88 1.35.41.41.8.67 1.35.88.41.16 1.03.35 2.17.4 1.24.06 1.59.07 4.74.07s3.5 0 4.74-.07c1.14-.05 1.76-.24 2.17-.4.55-.21.94-.47 1.35-.88.41-.41.67-.8.88-1.35.16-.41.35-1.03.4-2.17.06-1.24.07-1.59.07-4.74s0-3.5-.07-4.74c-.05-1.14-.24-1.76-.4-2.17a3.6 3.6 0 0 0-.88-1.35 3.6 3.6 0 0 0-1.35-.88c-.41-.16-1.03-.35-2.17-.4-1.24-.06-1.59-.07-4.74-.07m0 3.32a5.03 5.03 0 1 0 0 10.06 5.03 5.03 0 0 0 0-10.06m0 8.3a3.27 3.27 0 1 1 0-6.54 3.27 3.27 0 0 1 0 6.54m6.4-8.52a1.18 1.18 0 1 1-2.35 0 1.18 1.18 0 0 1 2.35 0"/></svg></a>
+          <a href="https://www.tiktok.com/@woollybugapp" target="_blank" rel="noopener" aria-label="Woolly Bug on TikTok"><svg viewBox="0 0 24 24"><path d="M16.6 5.8a4.3 4.3 0 0 1-1-2.8h-3.3v12.1a2.45 2.45 0 0 1-2.45 2.4 2.45 2.45 0 0 1-.43-4.86V9.3a5.7 5.7 0 1 0 6.18 5.68V8.66a7.3 7.3 0 0 0 4.2 1.33V6.7a4.3 4.3 0 0 1-3.2-.9"/></svg></a>
+          <a href="https://www.youtube.com/@woollybugapp" target="_blank" rel="noopener" aria-label="Woolly Bug on YouTube"><svg viewBox="0 0 24 24"><path d="M23 7.5a3 3 0 0 0-2.1-2.1C19 4.9 12 4.9 12 4.9s-7 0-8.9.5A3 3 0 0 0 1 7.5 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.5a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 23.5 12 31 31 0 0 0 23 7.5M9.75 15.5v-7l6 3.5z"/></svg></a>
+          <a href="https://www.reddit.com/r/flytying/" target="_blank" rel="noopener" aria-label="Fly tying community on Reddit"><svg viewBox="0 0 24 24"><path d="M22 11.8a2.1 2.1 0 0 0-3.55-1.5 10.3 10.3 0 0 0-5.3-1.67l.9-4.25 2.96.63a1.5 1.5 0 1 0 .16-.98l-3.3-.7a.4.4 0 0 0-.48.31l-1 4.7a10.4 10.4 0 0 0-5.38 1.66 2.1 2.1 0 1 0-2.32 3.43 4 4 0 0 0-.05.62c0 3.15 3.67 5.7 8.2 5.7s8.2-2.55 8.2-5.7a4 4 0 0 0-.05-.61A2.1 2.1 0 0 0 22 11.8M7.7 13.3a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0m8.34 3.94c-1.02 1.02-3 1.1-3.58 1.1s-2.56-.08-3.58-1.1a.39.39 0 0 1 .55-.55c.64.64 2.02.87 3.03.87s2.39-.23 3.03-.87a.39.39 0 1 1 .55.55m-.27-2.44a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/></svg></a>
+        </div>
       </div>
       <div class="foot-cols">
         <div class="fcol">
@@ -568,9 +639,18 @@ footer{background:var(--brown);color:#bcae9c;padding:60px 0 34px}
 
 <script>
 // Mobile nav
-const burger=document.getElementById('burger'),navLinks=document.getElementById('navLinks');
-burger.addEventListener('click',()=>navLinks.classList.toggle('show'));
-navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('show')));
+const burger=document.getElementById('burger'),navLinks=document.getElementById('navLinks'),navOverlay=document.getElementById('navOverlay');
+function setMenu(open){
+  navLinks.classList.toggle('show',open);
+  navOverlay.classList.toggle('show',open);
+  burger.classList.toggle('open',open);
+  document.body.classList.toggle('menu-open',open);
+  burger.setAttribute('aria-expanded',open);
+}
+burger.addEventListener('click',()=>setMenu(!navLinks.classList.contains('show')));
+navOverlay.addEventListener('click',()=>setMenu(false));
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false);});
 
 // FAQ accordion
 document.querySelectorAll('.faq-q').forEach(q=>{
