@@ -15,7 +15,12 @@
 <meta property="og:url" content="https://woollybug.com/">
 <meta property="og:image" content="assets/icon.png">
 
-<link rel="icon" type="image/png" href="assets/icon.png">
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon-180.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#2D2520">
 
 <!-- Typography uses Apple system fonts: SF Pro (display), SF Pro Rounded (body), SF Mono (data) -->
 
@@ -442,7 +447,7 @@ footer{background:var(--brown);color:#bcae9c;padding:60px 0 34px}
       <div class="feat reveal">
         <div class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
         <h3>Material inventory</h3>
-        <p>Track every feather, dubbing, hook and thread with photos, quantities and storage locations — your whole bench in one searchable library.</p>
+        <p>Track every feather, dubbing, hook and thread with photos, quantities and storage locations. Clone items and batch-add — your whole bench in one searchable library.</p>
       </div>
       <div class="feat reveal">
         <div class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/><path d="M8 11h6M11 8v6"/></svg></div>
@@ -465,9 +470,9 @@ footer{background:var(--brown);color:#bcae9c;padding:60px 0 34px}
         <p>Bulk-manage your inventory in Excel or Numbers, with smart de-duplication when you re-import. Your data, always yours.</p>
       </div>
       <div class="feat reveal">
-        <div class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h3"/><path d="M14.5 14.5h-4M12.5 12.5v4"/></svg></div>
-        <h3>Quick add &amp; clone</h3>
-        <p>Clone materials and use Save &amp; Add Another for fast batch entry — build your whole library in minutes, not evenings.</p>
+        <div class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
+        <h3>Pattern keeper</h3>
+        <p>Save your favourite fly recipes with full material lists, then see at a glance which patterns you can tie right now and which materials you're missing.</p>
       </div>
     </div>
   </div>
@@ -483,28 +488,28 @@ footer{background:var(--brown);color:#bcae9c;padding:60px 0 34px}
     </div>
     <div class="screens">
 
-      <!-- Create Pattern -->
+      <!-- Pattern detail -->
       <div class="screen-col reveal">
         <div class="phone shot">
-          <div class="screen"><img class="shot-img" src="assets/screens/create-pattern.jpg" alt="Create a fly pattern with its recipe"></div>
+          <div class="screen"><img class="shot-img" src="assets/screens/thepattern.png" alt="Pattern detail showing an Emerger Comparadun with hook and materials"></div>
         </div>
-        <div class="cap">Build patterns with full recipes</div>
+        <div class="cap">Full pattern detail with recipe</div>
       </div>
 
-      <!-- Hook Finder (lifted center) -->
+      <!-- Inventory (lifted center) -->
       <div class="screen-col reveal">
         <div class="phone shot lift">
-          <div class="screen"><img class="shot-img" src="assets/screens/hook-finder.jpg" alt="Hook Finder showing equivalent hooks"></div>
+          <div class="screen"><img class="shot-img" src="assets/screens/theinventory.png" alt="Inventory view with material categories and search"></div>
         </div>
-        <div class="cap">Compare hooks &amp; find equivalents</div>
+        <div class="cap">Your whole bench, organised</div>
       </div>
 
-      <!-- Basket -->
+      <!-- Pattern materials & gather -->
       <div class="screen-col reveal">
         <div class="phone shot">
-          <div class="screen"><img class="shot-img" src="assets/screens/basket.jpg" alt="Shopping basket of materials to buy"></div>
+          <div class="screen"><img class="shot-img" src="assets/screens/thepattern2.png" alt="Pattern materials list with storage locations and tutorial link"></div>
         </div>
-        <div class="cap">A shopping basket for restocks</div>
+        <div class="cap">Know where to find every material</div>
       </div>
 
     </div>
@@ -520,6 +525,7 @@ footer{background:var(--brown);color:#bcae9c;padding:60px 0 34px}
       <p>Woolly Bug started at a cluttered tying bench, scribbled material lists, and one too many trips to the shop for a spool we already owned. It's the tool we wished existed — simple, warm, and made entirely around how fly tyers actually work.</p>
       <div class="tier-points">
         <div class="tpoint"><span class="tk">✓</span><div>Add materials in seconds with smart sizes, colors and quantities.</div></div>
+        <div class="tpoint"><span class="tk">✓</span><div>Save full pattern recipes and instantly see which flies you can tie with what you have.</div></div>
         <div class="tpoint"><span class="tk">✓</span><div>Syncs securely to the cloud so your stash is always backed up.</div></div>
         <div class="tpoint"><span class="tk">✓</span><div>Works fully offline at the bench — no signal needed at the river.</div></div>
       </div>
@@ -579,7 +585,7 @@ footer{background:var(--brown);color:#bcae9c;padding:60px 0 34px}
       </div>
       <div class="faq-item">
         <button class="faq-q">Which devices are supported?<span class="ic"></span></button>
-        <div class="faq-a"><p>Woolly Bug is a native iOS app and runs on iPhone with iOS 18 or later. It's built with the latest Apple frameworks for a fast, smooth experience.</p></div>
+        <div class="faq-a"><p>Woolly Bug runs on iPhone and iPad with iOS 18 or later. Your inventory syncs seamlessly across devices, so you can add materials on your phone at the shop and browse patterns on your iPad at the bench.</p></div>
       </div>
     </div>
   </div>
