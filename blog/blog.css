@@ -57,7 +57,7 @@ header.nav{position:sticky;top:0;z-index:50;background:rgba(254,247,239,.85);
 .post-card .thumb{height:158px;display:grid;place-items:center;background:linear-gradient(135deg,#efe2cd,#e4d4ba)}
 .post-card .thumb svg{width:60px;height:60px;stroke:var(--accent-text);fill:none;stroke-width:1.6}
 .post-card .pc-body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
-.post-card .tag{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:var(--accent-text);margin-bottom:10px}
+.post-card .tag{display:inline-block;align-self:flex-start;font-size:10.5px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:var(--accent-dark);background:rgba(212,165,116,.12);padding:3px 8px;border-radius:4px;margin-bottom:10px}
 .post-card h2{font-size:21px;line-height:1.18;color:var(--text)}
 .post-card p{color:var(--text-2);font-size:14.5px;margin-top:10px;flex:1}
 .post-card .more{margin-top:16px;font-weight:800;font-size:14px;color:var(--accent-text)}
@@ -70,7 +70,7 @@ header.nav{position:sticky;top:0;z-index:50;background:rgba(254,247,239,.85);
 /* ---- article ---- */
 .article{padding:14px 0 30px}
 .article-head{max-width:var(--read);margin:0 auto;text-align:center;padding:14px 0 30px}
-.article-head .tag{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.7px;text-transform:uppercase;color:var(--accent-text)}
+.article-head .tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.7px;text-transform:uppercase;color:var(--accent-dark);background:rgba(212,165,116,.12);padding:3px 9px;border-radius:4px}
 .article-head h1{font-size:clamp(30px,4vw,46px);margin:14px 0 16px}
 .article-head .dek{font-size:19px;color:var(--text-2)}
 .article-head .meta{margin-top:18px;font-size:13.5px;color:var(--text-2);font-weight:600;display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap}
@@ -106,6 +106,28 @@ table.data thead th{background:var(--brown);color:var(--cream);font-family:var(-
 table.data tbody tr:nth-child(even){background:var(--cream)}
 table.data td.mono{font-family:var(--mono);font-size:14px}
 table.data tbody tr:last-child td{border-bottom:none}
+
+/* ---- app-style UI (mirrors iOS design system) ---- */
+/* Primary button: accent fill, white headline text, 16px radius — as in-app */
+.wb-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  background:var(--accent);color:#fff;
+  font-family:var(--display);font-weight:700;font-size:16px;
+  padding:12px 22px;border-radius:16px;border:none;
+  transition:transform .12s ease-in-out, opacity .12s ease-in-out, background .15s}
+.wb-btn:hover{background:var(--accent-dark);text-decoration:none}
+.wb-btn:active{transform:scale(.96);opacity:.85}
+/* Secondary button: 12% accent tint, accent text — as in-app */
+.wb-btn-2{display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  background:rgba(212,165,116,.12);color:var(--accent-text);
+  font-family:var(--display);font-weight:700;font-size:16px;
+  padding:12px 22px;border-radius:16px;border:none;
+  transition:transform .12s ease-in-out, opacity .12s ease-in-out, background .15s}
+.wb-btn-2:hover{background:rgba(212,165,116,.2);text-decoration:none}
+.wb-btn-2:active{transform:scale(.96);opacity:.85}
+.wb-badge{display:inline-block;font-size:10px;font-weight:600;color:var(--green);
+  background:rgba(107,142,90,.12);padding:2px 6px;border-radius:4px}
+.wb-dot{display:inline-block;width:8px;height:8px;border-radius:50%;vertical-align:middle;margin-right:7px}
+.wb-dot.g{background:var(--green)} .wb-dot.y{background:var(--yellow)} .wb-dot.r{background:var(--red)}
 
 /* callout / app CTA */
 .callout{max-width:var(--read);margin:34px auto;background:linear-gradient(135deg,#D4A574,#C4955A);
