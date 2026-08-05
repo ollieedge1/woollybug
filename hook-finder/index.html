@@ -140,6 +140,11 @@ header.nav{position:sticky;top:0;z-index:50;background:rgba(254,247,239,.82);bac
 .as-badge:active{transform:scale(.97)}
 .as-badge img{height:48px;width:auto;display:block}
 .hero-cta .as-badge img{height:60px}
+.nav-cta{display:flex;align-items:center;gap:14px}
+.nav-ig{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;color:var(--accent-text);background:rgba(212,165,116,.15);border:1px solid rgba(212,165,116,.3);transition:transform .12s ease, background .15s, color .15s}
+.nav-ig:hover{background:var(--accent);color:#382a18;transform:translateY(-2px)}
+.nav-ig:active{transform:scale(.95)}
+.menu-ig{display:none}
 .hamburger{display:none;background:none;border:none;cursor:pointer;padding:9px;border-radius:10px}
 .hamburger span{display:block;width:24px;height:2.5px;background:var(--brown);border-radius:2px;margin:5px 0;transition:transform .26s ease, opacity .2s ease}
 .hamburger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
@@ -325,6 +330,8 @@ footer{background:var(--brown);color:#bcae9c;padding:60px 0 34px}
   .nav-links{position:fixed;inset:70px 10px auto 10px;flex-direction:column;align-items:stretch;background:var(--cream);padding:10px;gap:2px;border:1px solid rgba(45,37,32,.08);border-radius:20px;box-shadow:var(--shadow);z-index:45;opacity:0;visibility:hidden;transform:translateY(-12px) scale(.98);transform-origin:top;transition:opacity .24s ease, transform .26s cubic-bezier(.2,.8,.2,1), visibility .26s}
   .nav-links.show{opacity:1;visibility:visible;transform:none}
   .nav-links a.link{font-size:17px;font-weight:700;color:var(--text);padding:15px 16px;border-radius:12px}
+  .menu-ig{display:flex;align-items:center;justify-content:center;gap:10px;padding:14px 16px;margin:4px 8px 0;border-radius:12px;font-weight:700;font-size:15px;color:var(--accent-text);background:rgba(212,165,116,.12);border:1px solid rgba(212,165,116,.25);transition:background .15s}
+  .menu-ig:active{background:rgba(212,165,116,.25)}
   .menu-cta{display:flex;justify-content:center;padding:14px 8px 8px;margin-top:4px}
   .menu-cta img{height:50px}
   .nav-cta .as-badge{display:none}
@@ -348,6 +355,8 @@ footer{background:var(--brown);color:#bcae9c;padding:60px 0 34px}
     <a href="/" class="brand"><img src="/assets/icon.png" alt="Woolly Bug icon">Woolly Bug</a>
     <nav class="nav-links" id="navLinks">
       <a class="link" href="/#features">Features</a>
+      <a class="link" href="/#screens">Screenshots</a>
+      <a class="link" href="/#tier">Why Woolly Bug</a>
       <a class="link" href="/hook-finder/">Hook Finder</a>
       <a class="link" href="/blog/">Blog</a>
       <a class="link" href="/#faq">FAQ</a>
