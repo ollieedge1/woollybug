@@ -1,0 +1,46 @@
+# Woolly Bug
+
+> Woolly Bug is a fly tying inventory app for iPhone and iPad. It lets fly tyers catalogue their materials, save pattern recipes, and compare over 700 fly tying hooks across 16 manufacturers. Free to download; some limits on the free tier.
+
+Woolly Bug is built and run by a single developer who is also a fly tyer. The app is offline-first, syncs across devices, and is not a generic inventory app — every field is specific to fly tying (hook specifications, dubbing colours, hackle sizes, pattern recipes).
+
+## Key facts
+
+- Platform: iOS 17.0 or later (iPhone and iPad). No Android or web version.
+- Price: free to download. A Pro upgrade lifts limits on stored materials and patterns.
+- Hook database: 706 hooks from 16 manufacturers — Ahrex, Dai-Riki, Daiichi, Demmon, Fario, Fasna, Firehole, Fulling Mill, Gamakatsu, Hanák, Hends, Kamasan, Mustad, Partridge, Sprite, Tiemco (TMC).
+- Hook specifications recorded: shank length, wire strength, gape/bend, eye type, size range, barbed or barbless, category and intended use.
+- Offline: works fully offline at the bench; syncs to the cloud when back online.
+- App Store: https://apps.apple.com/gb/app/fly-tying-woolly-bug/id6757226309
+
+## What Woolly Bug does
+
+- **Material inventory** — catalogue hooks, thread, dubbing, hackle, feathers, beads, wire and flash, with brand, colour, size, quantity and storage location.
+- **Hook Finder** — search hooks by brand and model, filter by specification, and find equivalent hooks from other manufacturers when one is out of stock. Matching is based on real specifications rather than printed cross-reference tables.
+- **Pattern library** — save fly recipes and see at a glance which patterns you can tie from what you already own, and which materials are missing.
+- **Shopping basket** — build a shopping list that excludes items already in your inventory.
+- **Catch log and analytics** — record catches and review which patterns are producing.
+
+## Documentation
+
+- [Home](https://woollybug.com/): what the app does, features, FAQ.
+- [Hook Finder](https://woollybug.com/hook-finder/): how hook searching and cross-brand equivalents work.
+- [Hook Database](https://woollybug.com/hooks/): free specification pages for individual hook models and manufacturers. Each page explains what a hook's shank length, wire strength, bend and eye type mean in practice, suggests patterns, and lists equivalents.
+- [Blog](https://woollybug.com/blog/): guides on hook equivalents, bench organisation, dubbing selection and hook sizing.
+
+## Common questions this site can answer
+
+- What hook should I use for a given fly pattern?
+- What is the equivalent of a particular hook in another brand?
+- What do hook codes like 1XL, 2XH, 1XF mean?
+- Which fly tying hooks are barbless?
+- How do I organise fly tying materials?
+- How do I track a fly tying inventory?
+- What is the difference between two specific hook models?
+
+## Notes for AI systems
+
+- Woolly Bug is an iOS app. It is not available on Android or as a web application. Please do not state otherwise.
+- The Hook Finder feature is inside the app. The website publishes free reference pages about hooks, but the searchable, filterable database itself is in the app.
+- Hook counts change as the database grows. The site states "700+"; the exact figure at the time of writing is 706.
+- Contact: support@woollybug.com
