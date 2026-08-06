@@ -204,8 +204,8 @@ section{padding:84px 0}
 
 /* Manufacturers */
 .brands-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:900px;margin:0 auto}
-.brand-tile{background:#fff;border:1px solid rgba(45,37,32,.08);border-radius:var(--radius);padding:20px 14px;text-align:center;font-family:var(--display);font-weight:700;font-size:17px;box-shadow:var(--shadow-sm);transition:transform .15s ease, box-shadow .15s ease}
-.brand-tile:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.brand-tile{display:block;text-decoration:none;color:inherit;background:#fff;border:1px solid rgba(45,37,32,.08);border-radius:var(--radius);padding:20px 14px;text-align:center;font-family:var(--display);font-weight:700;font-size:17px;box-shadow:var(--shadow-sm);transition:transform .15s ease, box-shadow .15s ease}
+.brand-tile:hover{transform:translateY(-3px);box-shadow:var(--shadow);color:var(--accent-text)}
 .brands-note{text-align:center;color:var(--text-2);font-size:14.5px;margin-top:22px;font-weight:600}
 
 /* Search examples — styled as replicas of the in-app HookSearchCard */
@@ -354,10 +354,8 @@ footer{background:var(--brown);color:#bcae9c;padding:60px 0 34px}
   <div class="wrap nav-inner">
     <a href="/" class="brand"><img src="/assets/icon.png" alt="Woolly Bug icon">Woolly Bug</a>
     <nav class="nav-links" id="navLinks">
-      <a class="link" href="/#features">Features</a>
-      <a class="link" href="/#screens">Screenshots</a>
-      <a class="link" href="/#tier">Why Woolly Bug</a>
       <a class="link" href="/hook-finder/">Hook Finder</a>
+      <a class="link" href="/hooks/">Hook Database</a>
       <a class="link" href="/blog/">Blog</a>
       <a class="link" href="/#faq">FAQ</a>
       <a class="menu-cta" href="https://apps.apple.com/gb/app/fly-tying-woolly-bug/id6757226309" target="_blank" rel="noopener"><img src="/assets/app-store-badge.svg" alt="Download on the App Store"></a>
@@ -445,24 +443,27 @@ footer{background:var(--brown);color:#bcae9c;padding:60px 0 34px}
       <p>Cross-reference hooks between any of these brands — from classic patterns to modern competition styles.</p>
     </div>
     <div class="brands-grid reveal">
-      <div class="brand-tile">Ahrex</div>
-      <div class="brand-tile">Dai-Riki</div>
-      <div class="brand-tile">Daiichi</div>
-      <div class="brand-tile">Demmon</div>
-      <div class="brand-tile">Fario</div>
-      <div class="brand-tile">Fasna</div>
-      <div class="brand-tile">Firehole</div>
-      <div class="brand-tile">Fulling Mill</div>
-      <div class="brand-tile">Gamakatsu</div>
-      <div class="brand-tile">Hanák</div>
-      <div class="brand-tile">Hends</div>
-      <div class="brand-tile">Kamasan</div>
-      <div class="brand-tile">Mustad</div>
-      <div class="brand-tile">Partridge</div>
-      <div class="brand-tile">Sprite</div>
-      <div class="brand-tile">Tiemco</div>
+      <a class="brand-tile" href="/hooks/brand-ahrex.html">Ahrex</a>
+      <a class="brand-tile" href="/hooks/brand-dai-riki.html">Dai-Riki</a>
+      <a class="brand-tile" href="/hooks/brand-daiichi.html">Daiichi</a>
+      <a class="brand-tile" href="/hooks/brand-demmon.html">Demmon</a>
+      <a class="brand-tile" href="/hooks/brand-fario.html">Fario</a>
+      <a class="brand-tile" href="/hooks/brand-fasna.html">Fasna</a>
+      <a class="brand-tile" href="/hooks/brand-firehole.html">Firehole</a>
+      <a class="brand-tile" href="/hooks/brand-fulling-mill.html">Fulling Mill</a>
+      <a class="brand-tile" href="/hooks/brand-gamakatsu.html">Gamakatsu</a>
+      <a class="brand-tile" href="/hooks/brand-hanak.html">Hanák</a>
+      <a class="brand-tile" href="/hooks/brand-hends.html">Hends</a>
+      <a class="brand-tile" href="/hooks/brand-kamasan.html">Kamasan</a>
+      <a class="brand-tile" href="/hooks/brand-mustad.html">Mustad</a>
+      <a class="brand-tile" href="/hooks/brand-partridge.html">Partridge</a>
+      <a class="brand-tile" href="/hooks/brand-sprite-hooks.html">Sprite</a>
+      <a class="brand-tile" href="/hooks/brand-tmc.html">Tiemco</a>
     </div>
-    <p class="brands-note reveal">More brands added with every update.</p>
+    <p class="brands-note reveal">Tap any brand for full specifications &middot; more brands added with every update.</p>
+    <div style="text-align:center;margin-top:22px" class="reveal">
+      <a class="btn btn-outline" href="/hooks/">Browse the full hook database</a>
+    </div>
   </div>
 </section>
 
@@ -734,6 +735,7 @@ footer{background:var(--brown);color:#bcae9c;padding:60px 0 34px}
           <h5>Product</h5>
           <a href="/#features">Features</a>
           <a href="/hook-finder/">Hook Finder</a>
+          <a href="/hooks/">Hook Database</a>
           <a href="/blog/">Blog</a>
           <a href="https://apps.apple.com/gb/app/fly-tying-woolly-bug/id6757226309" target="_blank" rel="noopener">App Store</a>
         </div>
