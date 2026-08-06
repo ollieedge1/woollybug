@@ -20,17 +20,34 @@
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "Woolly Bug",
-  "operatingSystem": "iOS 17.0+",
+  "operatingSystem": "iOS 17.0 or later; iPhone and iPad",
   "applicationCategory": "UtilitiesApplication",
   "offers": {
     "@type": "Offer",
     "price": "0",
-    "priceCurrency": "GBP"
+    "priceCurrency": "GBP",
+    "availability": "https://schema.org/InStock"
   },
   "description": "The only app built for fly tyers to organise materials, save patterns and compare 700+ hooks across 16 brands.",
   "url": "https://woollybug.com",
   "downloadUrl": "https://apps.apple.com/gb/app/fly-tying-woolly-bug/id6757226309",
-  "screenshot": "https://woollybug.com/assets/screens/inventory.jpg"
+  "screenshot": "https://woollybug.com/assets/screens/inventory.jpg",
+  "@id": "https://woollybug.com/#app",
+  "publisher": {
+    "@id": "https://woollybug.com/#organization"
+  },
+  "applicationSubCategory": "Hobby & Inventory",
+  "featureList": [
+    "Catalogue fly tying materials with brand, colour, size and storage location",
+    "Hook Finder \u2014 search 700+ hooks from 16 manufacturers and find cross-brand equivalents",
+    "Save fly pattern recipes and see which you can tie from materials you already own",
+    "Shopping basket that excludes materials already in your inventory",
+    "Catch log and fishing analytics",
+    "Works offline; syncs across iPhone and iPad",
+    "CSV import and export"
+  ],
+  "softwareVersion": "current",
+  "isAccessibleForFree": true
 }
 </script>
 <script type="application/ld+json">
@@ -79,6 +96,53 @@
       }
     }
   ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://woollybug.com/#organization",
+  "name": "Woolly Bug",
+  "url": "https://woollybug.com/",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://woollybug.com/assets/favicon-512.png",
+    "width": 512,
+    "height": 512
+  },
+  "description": "Woolly Bug makes a fly tying inventory app for iPhone and iPad that lets tyers catalogue materials, save pattern recipes and compare over 700 hooks across 16 manufacturers.",
+  "email": "support@woollybug.com",
+  "sameAs": [
+    "https://www.facebook.com/woollybuginventory",
+    "https://instagram.com/woollybugapp",
+    "https://www.tiktok.com/@woollybugapp",
+    "https://www.youtube.com/@woollybugapp",
+    "https://apps.apple.com/gb/app/fly-tying-woolly-bug/id6757226309"
+  ],
+  "knowsAbout": [
+    "Fly tying",
+    "Fly fishing",
+    "Fly tying hooks",
+    "Fly tying materials",
+    "Fly pattern recipes",
+    "Hook equivalents"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://woollybug.com/#website",
+  "name": "Woolly Bug",
+  "url": "https://woollybug.com/",
+  "description": "Fly tying inventory app, hook comparison database and guides for fly tyers.",
+  "publisher": {
+    "@id": "https://woollybug.com/#organization"
+  },
+  "inLanguage": "en-GB"
 }
 </script>
 
