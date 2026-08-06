@@ -35,28 +35,13 @@
   .spec-item{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:12px 16px}
   .spec-item .label{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);font-weight:600}
   .spec-item .value{font-size:16px;color:var(--dark);font-weight:500;margin-top:2px}
-  .equiv-list{margin:16px 0}
-  .equiv-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
-  .equiv-card .info .brand{font-size:11px;text-transform:uppercase;color:var(--accent-text);font-weight:600}
-  .equiv-card .info .model{font-size:17px;font-family:var(--fh);color:var(--dark)}
-  .equiv-card .info .cat{font-size:13px;color:var(--muted)}
-  .equiv-card .match{font-size:13px;color:var(--green);font-weight:500;padding:4px 10px;background:var(--green-light);border-radius:12px}
-  .equiv-card a{text-decoration:none;color:inherit}
-  .gated-wrapper{position:relative;margin-top:8px}
-  .gated-wrapper .equiv-list{filter:blur(6px);pointer-events:none;user-select:none;-webkit-user-select:none;opacity:.6}
-  .gate-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:10;background:linear-gradient(180deg,rgba(254,247,239,0) 0%,rgba(254,247,239,.85) 30%,rgba(254,247,239,.95) 60%);text-align:center;padding:32px 24px;border-radius:var(--r)}
-  .gate-overlay h3{font-family:var(--fh);font-size:20px;color:var(--dark);margin-bottom:6px}
-  .gate-overlay .gate-count{font-weight:700;color:var(--accent-text)}
-  .gate-overlay p{color:var(--muted);font-size:14px;margin-bottom:16px;max-width:320px}
-  .gate-btn{display:inline-flex;align-items:center;gap:8px;background:var(--dark);color:var(--cream);padding:14px 28px;border-radius:28px;text-decoration:none;font-weight:700;font-size:15px;transition:background .2s}
-  .gate-btn:hover{background:#3D3226}
-  .gate-sub{font-size:12px;color:var(--muted);margin-top:10px}
-  .pill{display:inline-block;padding:4px 10px;border-radius:12px;font-size:12px;margin:2px}
+                                .pill{display:inline-block;padding:4px 10px;border-radius:12px;font-size:12px;margin:2px}
   .pill-green{background:var(--green-light);color:var(--green)}
   .pill-amber{background:#FFF3E0;color:#E65100}
   .breadcrumb{font-size:13px;color:var(--muted);margin-bottom:16px}
   .breadcrumb a{color:var(--accent-text);text-decoration:none}
   .internal-links{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+  .internal-links-plain{display:inline-block;padding:6px 14px;border-radius:20px;border:1px solid var(--border);background:var(--card);font-size:13px;color:var(--muted)}
   .internal-links a{padding:6px 14px;border-radius:20px;border:1px solid var(--border);background:var(--card);font-size:13px;color:var(--muted);text-decoration:none;transition:all .2s}
   .internal-links a:hover{border-color:var(--accent);color:var(--accent-text)}
   .cta-box{background:var(--dark);padding:32px;border-radius:var(--r);text-align:center;margin:32px 0}
@@ -111,10 +96,7 @@
 
 <h2>Specifications</h2>
 <div class="spec-grid">
-<div class="spec-item"><div class="label">Shank Length</div><div class="value">2X</div></div>
-<div class="spec-item"><div class="label">Wire Strength</div><div class="value">1XF</div></div>
-<div class="spec-item"><div class="label">Bend</div><div class="value">Limerick</div></div>
-<div class="spec-item"><div class="label">Eye Type</div><div class="value">Straight</div></div>
+<div class="spec-item"><div class="label">Category</div><div class="value">Dry Fly</div></div>
 <div class="spec-item"><div class="label">Sizes</div><div class="value">#12-24</div></div>
 <div class="spec-item"><div class="label">Barb</div><div class="value"><span class="pill pill-amber">Barbed</span></div></div>
 </div>
