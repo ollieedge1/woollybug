@@ -74,13 +74,15 @@ alt=""></noscript>
 <header class="nav">
   <div class="wrap nav-inner">
     <a href="../index.html" class="brand"><img src="../assets/icon.png" alt="Woolly Bug">Woolly Bug</a>
-    <nav class="nav-links">
+    <nav class="nav-links" id="navLinks">
       <a class="link" href="../hook-finder/">Hook Finder</a>
       <a class="link" href="../hooks/">Hook Database</a>
       <a class="link" href="./">Blog</a>
       <a class="as-badge" href="https://apps.apple.com/gb/app/fly-tying-woolly-bug/id6757226309" target="_blank" rel="noopener"><img src="../assets/app-store-badge.svg" alt="Download Woolly Bug on the App Store"></a>
     </nav>
+    <button class="hamburger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
   </div>
+<div class="nav-overlay" id="navOverlay"></div>
 </header>
 
 <div class="wrap"><div class="crumb"><a href="../index.html">Home</a> / <span>Blog</span></div></div>
@@ -195,5 +197,21 @@ alt=""></noscript>
   </div>
 </footer>
 
+<script>
+(function(){
+  var burger=document.getElementById('burger'),navLinks=document.getElementById('navLinks'),ov=document.getElementById('navOverlay');
+  if(!burger||!navLinks||!ov)return;
+  function setMenu(open){
+    navLinks.classList.toggle('show',open);
+    ov.classList.toggle('show',open);
+    burger.classList.toggle('open',open);
+    burger.setAttribute('aria-expanded',open);
+  }
+  burger.addEventListener('click',function(){setMenu(!navLinks.classList.contains('show'));});
+  ov.addEventListener('click',function(){setMenu(false);});
+  navLinks.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setMenu(false);});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')setMenu(false);});
+})();
+</script>
 </body>
 </html>
