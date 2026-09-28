@@ -457,11 +457,6 @@ footer a:hover{color:var(--linen)}
   </div>
 </footer>
 
-<script>
-// Tell Meta when someone heads to the App Store, so ad performance can be judged on that, not page views.
-document.querySelectorAll('a.appstore').forEach(function(a){
-  a.addEventListener('click',function(){ if(window.fbq) fbq('trackCustom','AppStoreClick'); });
-});
-</script>
+<script src="/assets/v2/analytics.js" defer></script>
 </body>
 </html>
