@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What Can I Tie? — Free Fly Pattern Finder | Woolly Bug</title>
+<meta name="description" content="Select the fly tying materials you have and instantly see which fly patterns you can tie. Free pattern finder tool from Woolly Bug — the fly tying inventory app.">
+<meta name="keywords" content="fly tying pattern finder, what can I tie, fly tying materials calculator, fly pattern matching, fly tying inventory checker">
+<link rel="canonical" href="https://woollybug.com/tools/what-can-i-tie.html">
+<meta property="og:title" content="What Can I Tie? — Free Fly Pattern Finder | Woolly Bug">
+<meta property="og:description" content="Select your materials and see which fly patterns you can tie right now, plus patterns you're just 1-2 materials away from.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://woollybug.com/tools/what-can-i-tie.html">
+<meta property="og:image" content="https://woollybug.com/assets/favicon-512.png">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"What Can I Tie? — Fly Pattern Finder",
+  "description":"Select your fly tying materials and instantly see which fly patterns you can tie right now.",
+  "url":"https://woollybug.com/tools/what-can-i-tie.html",
+  "applicationCategory":"UtilityApplication",
+  "operatingSystem":"Web",
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"},
+  "creator":{"@type":"Organization","name":"Woolly Bug","url":"https://woollybug.com/"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://woollybug.com/"},
+    {"@type":"ListItem","position":2,"name":"Tools","item":"https://woollybug.com/tools/"},
+    {"@type":"ListItem","position":3,"name":"What Can I Tie?","item":"https://woollybug.com/tools/what-can-i-tie.html"}
+  ]
+}
+</script>
+<style>
+:root{
+  --cream:#FEF7EF;
+  --cream-2:#F5EFE4;
+  --brown:#2D2520;
+  --card-dark:#3D3226;
+  --accent:#D4A574;
+  --accent-dark:#C4955A;
+  --accent-text:#8B5E2A;
+  --text:#3D3226;
+  --text-2:#6B5A45;
+  --text-dark:#F5F1E8;
+  --green:#6B8E5A;
+  --green-glow:rgba(107,142,90,.25);
+  --yellow:#D4A534;
+  --red:#C45B4A;
+  --radius-sm:8px; --radius:12px; --radius-lg:16px; --radius-xl:24px;
+  --maxw:1200px;
+  --shadow:0 18px 50px rgba(45,37,32,.16);
+  --shadow-sm:0 6px 20px rgba(45,37,32,.10);
+  --shadow-lg:0 24px 64px rgba(45,37,32,.22);
+  --rounded:ui-rounded,'SF Pro Rounded',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
+  --display:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Segoe UI',system-ui,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,'SF Mono','SFMono-Regular',Menlo,Monaco,'Cascadia Code',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+h1,h2,h3,.display{font-family:var(--display);font-weight:700;line-height:1.06;letter-spacing:-.02em}
+.mono{font-family:var(--mono),monospace}
+img{max-width:100%;display:block}
+.accent{color:var(--accent-text)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  font-family:var(--rounded);font-weight:800;font-size:15px;
+  padding:12px 22px;border-radius:999px;border:none;cursor:pointer;
+  transition:transform .12s ease, box-shadow .12s ease, background .15s;
+}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--brown);color:var(--cream);box-shadow:var(--shadow-sm)}
+.btn-primary:hover{background:#231d18}
+.btn-accent{background:var(--accent);color:#382a18}
+.btn-accent:hover{background:var(--accent-dark)}
+
+/* ---------- Hero ---------- */
+.tool-hero{
+  background:var(--brown);
+  padding:80px 0 70px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.tool-hero::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 20% 80%, rgba(212,165,116,.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(107,142,90,.10) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 0%, rgba(212,165,116,.18) 0%, transparent 60%);
+}
+.hero-content{position:relative;z-index:2}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--mono);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;
+  color:var(--accent);
+  background:rgba(212,165,116,.12);
+  border:1px solid rgba(212,165,116,.2);
+  padding:8px 18px;border-radius:999px;
+  margin-bottom:24px;
+}
+.hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.tool-hero h1{
+  font-size:clamp(36px,5vw,64px);
+  color:var(--text-dark);
+  letter-spacing:-.03em;
+  line-height:1;
+}
+.tool-hero h1 .hero-accent{
+  background:linear-gradient(135deg,var(--accent),#E8C9A0);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.tool-hero p{
+  color:#bcae9c;
+  font-size:18px;
+  max-width:580px;
+  margin:20px auto 0;
+  font-weight:500;
+  line-height:1.7;
+}
+.hero-stats{
+  display:flex;justify-content:center;gap:40px;margin-top:36px;
+}
+.hero-stat{text-align:center}
+.hero-stat .stat-num{
+  font-family:var(--display);font-size:32px;font-weight:800;
+  color:var(--accent);line-height:1;
+}
+.hero-stat .stat-label{
+  font-size:12px;font-weight:700;color:#8e8170;text-transform:uppercase;letter-spacing:.8px;margin-top:4px;
+}
+
+/* Floating elements */
+.hero-floats{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.hero-float{position:absolute;opacity:.06;animation:floatDrift 20s ease-in-out infinite alternate}
+.hero-float:nth-child(2){animation-delay:-7s;animation-duration:25s}
+.hero-float:nth-child(3){animation-delay:-13s;animation-duration:18s}
+@keyframes floatDrift{
+  0%{transform:translate(0,0) rotate(0deg)}
+  33%{transform:translate(15px,-20px) rotate(5deg)}
+  66%{transform:translate(-10px,10px) rotate(-3deg)}
+  100%{transform:translate(5px,-15px) rotate(2deg)}
+}
+
+/* ---------- Stats Dashboard ---------- */
+.stats-dash{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
+  margin-bottom:30px;
+}
+.stat-card{
+  background:#fff;
+  border-radius:var(--radius);
+  padding:18px 20px;
+  text-align:center;
+  box-shadow:0 2px 8px rgba(45,37,32,.06);
+  border:1px solid rgba(45,37,32,.04);
+  transition:all .2s ease;
+  cursor:pointer;
+}
+.stat-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-1px)}
+.stat-card.active{border-color:var(--accent);box-shadow:0 4px 16px rgba(212,165,116,.2)}
+.stat-card .stat-val{
+  font-family:var(--display);font-size:28px;font-weight:800;line-height:1;
+  transition:transform .3s cubic-bezier(.34,1.56,.64,1);
+}
+.stat-card .stat-val.pop{transform:scale(1.15)}
+.stat-card .stat-lbl{
+  font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;
+  color:var(--text-2);margin-top:4px;
+}
+.stat-ready .stat-val{color:var(--green)}
+.stat-almost .stat-val{color:var(--yellow)}
+.stat-close .stat-val{color:var(--accent-text)}
+.stat-far .stat-val{color:var(--text-2)}
+
+/* ---------- Tool Layout ---------- */
+.tool-section{padding:50px 0 80px}
+.tool-grid{display:grid;grid-template-columns:360px 1fr;gap:30px;align-items:start}
+
+/* ---------- Left Panel: Materials ---------- */
+.materials-panel{
+  background:#fff;
+  border-radius:var(--radius-xl);
+  box-shadow:var(--shadow-sm);
+  border:1px solid rgba(45,37,32,.04);
+  padding:24px;
+  position:sticky;
+  top:90px;
+  max-height:calc(100vh - 110px);
+  overflow-y:auto;
+}
+.materials-panel::-webkit-scrollbar{width:6px}
+.materials-panel::-webkit-scrollbar-thumb{background:var(--accent);border-radius:3px}
+.materials-panel::-webkit-scrollbar-track{background:transparent}
+
+.panel-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:10px}
+.panel-header h2{font-size:20px;font-family:var(--display)}
+.panel-actions{display:flex;gap:8px;flex-wrap:wrap}
+.panel-actions button{
+  font-family:var(--rounded);font-weight:700;font-size:12px;
+  padding:7px 14px;border-radius:999px;border:none;cursor:pointer;
+  transition:background .15s, transform .1s;
+}
+.panel-actions button:active{transform:scale(.96)}
+.btn-clear{background:var(--cream-2);color:var(--text-2)}
+.btn-clear:hover{background:#ebe4d7}
+.btn-starter{background:var(--accent);color:#382a18}
+.btn-starter:hover{background:var(--accent-dark)}
+
+/* Search */
+.mat-search{
+  position:relative;margin-bottom:18px;
+}
+.mat-search input{
+  width:100%;
+  font-family:var(--rounded);font-size:14px;font-weight:600;
+  padding:11px 16px 11px 40px;
+  border:2px solid rgba(45,37,32,.08);
+  border-radius:var(--radius);
+  background:var(--cream);
+  color:var(--text);
+  outline:none;
+  transition:border-color .2s, box-shadow .2s;
+}
+.mat-search input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(212,165,116,.15)}
+.mat-search input::placeholder{color:var(--text-2);font-weight:500}
+.mat-search .search-icon{
+  position:absolute;left:14px;top:50%;transform:translateY(-50%);
+  width:16px;height:16px;color:var(--text-2);pointer-events:none;
+}
+
+.mat-category{margin-bottom:8px;border-radius:var(--radius);overflow:hidden;transition:background .15s}
+.mat-category:hover{background:rgba(245,239,228,.4)}
+.cat-label{
+  font-family:var(--display);font-weight:700;font-size:13px;
+  text-transform:uppercase;letter-spacing:.8px;color:var(--text-2);
+  padding:10px 8px;margin-bottom:0;display:flex;align-items:center;gap:8px;cursor:pointer;
+  -webkit-tap-highlight-color:transparent;user-select:none;
+  border-radius:var(--radius-sm);transition:background .15s;
+}
+.cat-label:hover{background:rgba(212,165,116,.08)}
+.cat-label .cat-icon{font-size:16px}
+.cat-toggle{margin-left:auto;font-size:12px;transition:transform .25s cubic-bezier(.34,1.56,.64,1);color:var(--accent)}
+.mat-category.collapsed .cat-toggle{transform:rotate(-90deg)}
+.cat-count{
+  font-family:var(--mono);font-size:10px;font-weight:700;
+  background:var(--accent);color:#382a18;
+  padding:2px 8px;border-radius:999px;
+}
+.mat-chips{
+  display:flex;flex-wrap:wrap;gap:6px;
+  padding:4px 8px 12px;
+  max-height:600px;overflow:hidden;
+  transition:max-height .3s ease, opacity .25s ease, padding .3s ease;
+}
+.mat-category.collapsed .mat-chips{max-height:0;opacity:0;padding:0 8px}
+.mat-chip{
+  font-family:var(--rounded);font-weight:700;font-size:12px;
+  padding:7px 13px;border-radius:999px;
+  border:1.5px solid rgba(45,37,32,.1);cursor:pointer;
+  background:rgba(254,247,239,.6);color:var(--text-2);
+  transition:all .2s cubic-bezier(.34,1.56,.64,1);
+  user-select:none;
+  -webkit-tap-highlight-color:transparent;
+}
+.mat-chip:hover{border-color:var(--accent);background:rgba(212,165,116,.08);transform:translateY(-1px)}
+.mat-chip.active{
+  background:var(--accent);color:#382a18;border-color:var(--accent-dark);
+  box-shadow:0 3px 12px rgba(212,165,116,.35);
+  transform:scale(1.02);
+}
+.mat-chip.active:hover{background:var(--accent-dark);transform:scale(1.02) translateY(-1px)}
+.mat-chip.search-hidden{display:none}
+
+.selected-count{
+  font-family:var(--mono);font-size:12px;font-weight:600;
+  color:var(--accent-text);padding:10px 8px 0;
+}
+
+/* ---------- Right Panel: Results ---------- */
+.results-panel{min-height:400px}
+
+.filters-bar{
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  margin-bottom:24px;
+}
+.filter-group{display:flex;gap:3px;background:var(--cream-2);padding:3px;border-radius:999px}
+.filter-btn{
+  font-family:var(--rounded);font-weight:700;font-size:13px;
+  padding:8px 16px;border-radius:999px;border:none;cursor:pointer;
+  background:transparent;color:var(--text-2);
+  transition:all .2s ease;
+}
+.filter-btn:hover{color:var(--text)}
+.filter-btn.active{background:#fff;color:var(--text);box-shadow:0 2px 8px rgba(45,37,32,.1)}
+
+.match-counter{
+  font-family:var(--mono);font-size:13px;font-weight:600;
+  color:var(--accent-text);margin-left:auto;white-space:nowrap;
+}
+
+/* Smart suggestion */
+.suggestion-bar{
+  background:linear-gradient(135deg,rgba(212,165,116,.1),rgba(107,142,90,.08));
+  border:1px solid rgba(212,165,116,.15);
+  border-radius:var(--radius);
+  padding:14px 18px;
+  margin-bottom:20px;
+  display:flex;align-items:center;gap:12px;
+  font-size:13px;font-weight:600;color:var(--text);
+  animation:fadeSlideIn .4s ease;
+}
+.suggestion-bar .sug-icon{font-size:18px;flex:none}
+.suggestion-bar strong{color:var(--accent-text)}
+.suggestion-bar .sug-action{
+  margin-left:auto;flex:none;
+  font-family:var(--rounded);font-weight:800;font-size:12px;
+  padding:6px 14px;border-radius:999px;border:none;cursor:pointer;
+  background:var(--accent);color:#382a18;transition:all .15s;
+}
+.suggestion-bar .sug-action:hover{background:var(--accent-dark)}
+@keyframes fadeSlideIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+
+.empty-state{
+  text-align:center;padding:80px 30px;
+  background:#fff;border-radius:var(--radius-xl);box-shadow:var(--shadow-sm);
+  border:1px solid rgba(45,37,32,.04);
+}
+.empty-icon-wrap{
+  width:100px;height:100px;border-radius:50%;
+  background:linear-gradient(135deg,rgba(212,165,116,.15),rgba(212,165,116,.05));
+  display:grid;place-items:center;margin:0 auto 20px;
+}
+.empty-state .empty-icon{font-size:44px}
+.empty-state h3{font-size:22px;margin-bottom:8px}
+.empty-state p{color:var(--text-2);font-size:15px;max-width:380px;margin:0 auto}
+.empty-state .btn{margin-top:24px}
+
+.results-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(320px, 1fr));gap:18px}
+
+/* ---------- Pattern Card ---------- */
+.pattern-card{
+  background:#fff;
+  border-radius:var(--radius-xl);
+  box-shadow:0 4px 20px rgba(45,37,32,.08);
+  border:1px solid rgba(45,37,32,.04);
+  overflow:hidden;
+  transition:transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s ease;
+  animation:cardIn .4s ease both;
+  position:relative;
+}
+.pattern-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+@keyframes cardIn{
+  from{opacity:0;transform:translateY(16px) scale(.97)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+
+/* Accent bar on left */
+.card-accent{position:absolute;left:0;top:0;bottom:0;width:4px;border-radius:4px 0 0 4px}
+.accent-ready{background:linear-gradient(180deg,var(--green),#8AB077)}
+.accent-need-1{background:linear-gradient(180deg,var(--yellow),#E0BE5C)}
+.accent-need-2{background:linear-gradient(180deg,var(--accent),var(--accent-dark))}
+.accent-need-3{background:linear-gradient(180deg,#B0A090,#948577)}
+
+/* Ready shimmer */
+.pattern-card.card-ready{border-color:rgba(107,142,90,.15)}
+.pattern-card.card-ready::after{
+  content:"";position:absolute;inset:0;border-radius:inherit;
+  background:linear-gradient(135deg,transparent 40%,rgba(107,142,90,.06) 50%,transparent 60%);
+  background-size:200% 200%;
+  animation:shimmer 3s ease-in-out infinite;
+  pointer-events:none;
+}
+@keyframes shimmer{
+  0%{background-position:200% 200%}
+  100%{background-position:-200% -200%}
+}
+
+.card-header{padding:20px 20px 0 24px;display:flex;align-items:flex-start;gap:14px}
+.card-info{flex:1;min-width:0}
+.card-info h3{font-size:17px;font-family:var(--display);line-height:1.2}
+.card-meta{display:flex;align-items:center;gap:8px;margin-top:6px;flex-wrap:wrap}
+.card-difficulty{
+  font-family:var(--mono);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;
+  padding:3px 9px;border-radius:999px;white-space:nowrap;
+}
+.diff-beginner{background:rgba(107,142,90,.12);color:var(--green)}
+.diff-intermediate{background:rgba(212,165,52,.12);color:#9a7a1a}
+.diff-advanced{background:rgba(196,91,74,.12);color:var(--red)}
+
+.card-tag{
+  font-family:var(--rounded);font-weight:700;font-size:10px;
+  padding:3px 9px;border-radius:999px;white-space:nowrap;text-transform:uppercase;letter-spacing:.5px;
+}
+.tag-ready{background:rgba(107,142,90,.12);color:var(--green)}
+.tag-need-1{background:rgba(212,165,52,.14);color:#9a7a1a}
+.tag-need-2{background:rgba(212,165,52,.08);color:#b89840}
+.tag-need-3{background:rgba(45,37,32,.06);color:var(--text-2)}
+
+/* Progress Ring */
+.card-ring{flex:none;width:52px;height:52px;position:relative}
+.card-ring svg{width:52px;height:52px;transform:rotate(-90deg)}
+.ring-bg{fill:none;stroke:rgba(45,37,32,.06);stroke-width:4}
+.ring-fill{fill:none;stroke-width:4;stroke-linecap:round;transition:stroke-dashoffset .6s cubic-bezier(.34,1.56,.64,1)}
+.ring-ready{stroke:var(--green)}
+.ring-need-1{stroke:var(--yellow)}
+.ring-need-2{stroke:var(--accent)}
+.ring-need-3{stroke:#B0A090}
+.ring-pct{
+  position:absolute;inset:0;display:grid;place-items:center;
+  font-family:var(--mono);font-size:12px;font-weight:800;color:var(--text);
+}
+
+/* Progress bar (horizontal, compact) */
+.card-progress{
+  margin:14px 20px 0 24px;height:4px;
+  background:rgba(45,37,32,.06);border-radius:2px;overflow:hidden;
+}
+.card-progress-fill{
+  height:100%;border-radius:2px;
+  transition:width .5s cubic-bezier(.34,1.56,.64,1);
+}
+.prog-ready{background:linear-gradient(90deg,var(--green),#8AB077)}
+.prog-need-1{background:linear-gradient(90deg,var(--yellow),#E0BE5C)}
+.prog-need-2{background:linear-gradient(90deg,var(--accent),var(--accent-dark))}
+.prog-need-3{background:linear-gradient(90deg,#B0A090,#948577)}
+
+.card-materials{padding:14px 20px 18px 24px}
+.card-mat{
+  display:flex;align-items:center;gap:10px;
+  padding:5px 0;
+  font-size:13px;font-weight:600;
+}
+.card-mat .mat-status{
+  width:18px;height:18px;border-radius:50%;
+  display:grid;place-items:center;flex:none;
+  font-size:10px;font-weight:800;
+}
+.mat-have{background:rgba(107,142,90,.12);color:var(--green)}
+.mat-miss{background:rgba(196,91,74,.12);color:var(--red)}
+.card-mat .mat-name{flex:1;line-height:1.3}
+.card-mat .mat-name.missing{color:var(--red);font-weight:700}
+
+/* Expand/collapse materials */
+.card-expand{
+  display:none;padding:0 20px 14px 24px;
+}
+.card-expand button{
+  font-family:var(--rounded);font-weight:700;font-size:12px;
+  color:var(--accent-text);background:none;border:none;cursor:pointer;
+  padding:4px 0;transition:color .15s;
+}
+.card-expand button:hover{color:var(--accent-dark)}
+
+/* ---------- CTA ---------- */
+.cta-section{text-align:center;background:var(--cream-2);padding:90px 0;position:relative;overflow:hidden}
+.cta-section::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(ellipse at 30% 100%, rgba(212,165,116,.1) 0%, transparent 50%),
+             radial-gradient(ellipse at 70% 0%, rgba(107,142,90,.06) 0%, transparent 50%);
+}
+.cta-box{
+  background:linear-gradient(135deg,var(--brown),#3D3226);
+  border-radius:var(--radius-xl);
+  padding:70px 48px;
+  box-shadow:var(--shadow-lg);
+  max-width:720px;
+  margin:0 auto;
+  position:relative;
+  overflow:hidden;
+}
+.cta-box::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 0%, rgba(212,165,116,.15) 0%, transparent 60%);
+}
+.cta-box>*{position:relative;z-index:1}
+.cta-box h2{font-size:clamp(26px,3.5vw,40px);color:var(--text-dark)}
+.cta-box p{color:#bcae9c;font-size:17px;margin:16px auto 32px;max-width:480px;font-weight:500;line-height:1.7}
+.cta-badges{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+.cta-features{
+  display:flex;justify-content:center;gap:32px;margin-top:32px;flex-wrap:wrap;
+}
+.cta-feat{
+  display:flex;align-items:center;gap:8px;
+  font-size:13px;font-weight:600;color:#bcae9c;
+}
+.cta-feat .feat-icon{font-size:16px}
+
+/* ---------- Floating Results Button (mobile) ---------- */
+.fab-results{
+  display:none;
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:30;
+  font-family:var(--rounded);font-weight:800;font-size:15px;
+  padding:14px 28px;border-radius:999px;border:none;cursor:pointer;
+  background:var(--brown);color:var(--cream);
+  box-shadow:0 8px 28px rgba(45,37,32,.35);
+  transition:transform .15s ease, box-shadow .15s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.fab-results:active{transform:translateX(-50%) scale(.95)}
+.fab-results .fab-count{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:22px;height:22px;border-radius:11px;
+  background:var(--accent);color:#382a18;font-size:12px;font-weight:800;
+  margin-left:8px;padding:0 6px;
+}
+
+/* ---------- Confetti ---------- */
+.confetti-container{position:fixed;inset:0;pointer-events:none;z-index:100;overflow:hidden}
+.confetti{
+  position:absolute;width:8px;height:8px;border-radius:2px;
+  animation:confettiFall 2.5s ease-out forwards;
+}
+@keyframes confettiFall{
+  0%{transform:translateY(-20px) rotate(0deg) scale(1);opacity:1}
+  100%{transform:translateY(100vh) rotate(720deg) scale(0);opacity:0}
+}
+
+/* ---------- Responsive ---------- */
+@media(max-width:900px){
+  .tool-grid{grid-template-columns:1fr;gap:24px}
+  .materials-panel{position:static;max-height:none;border-radius:var(--radius-lg)}
+  .results-grid{grid-template-columns:1fr}
+  .stats-dash{grid-template-columns:repeat(4,1fr);gap:10px}
+  .stat-card{padding:14px 12px}
+  .stat-card .stat-val{font-size:22px}
+  .fab-results{display:flex;align-items:center}
+  .hero-stats{gap:28px}
+}
+@media(max-width:760px){
+  .filters-bar{gap:8px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;
+    padding-bottom:4px;scrollbar-width:none}
+  .filters-bar::-webkit-scrollbar{display:none}
+  .filter-group{flex-wrap:nowrap;flex-shrink:0}
+  .filter-btn{white-space:nowrap}
+  .match-counter{margin-left:0;width:100%;flex-shrink:0}
+  .mat-chip{padding:10px 16px;font-size:13px}
+  .results-panel{padding-bottom:80px}
+  .stats-dash{grid-template-columns:repeat(2,1fr)}
+  .hero-stats{flex-wrap:wrap;gap:20px}
+  .suggestion-bar{flex-wrap:wrap}
+  .suggestion-bar .sug-action{margin-left:0;margin-top:6px;width:100%;text-align:center}
+}
+@media(max-width:480px){
+  .tool-hero{padding:56px 0 48px}
+  .tool-hero h1{font-size:32px}
+  .tool-hero p{font-size:15px}
+  .cta-box{padding:48px 24px;border-radius:var(--radius-lg)}
+  .filter-btn{padding:7px 14px;font-size:12px}
+  .results-grid{grid-template-columns:1fr}
+  .materials-panel{padding:18px}
+  .mat-chip{padding:10px 14px;font-size:13px}
+  .stat-card .stat-val{font-size:20px}
+  .stat-card .stat-lbl{font-size:10px}
+  .card-ring{width:44px;height:44px}
+  .card-ring svg{width:44px;height:44px}
+  .ring-pct{font-size:10px}
+}
+</style>
+<meta name="apple-itunes-app" content="app-id=6757226309">
+<meta name="theme-color" content="#1A1512">
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon-180.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/v2/site.css">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '4734392100122041');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=4734392100122041&amp;ev=PageView&amp;noscript=1"
+alt=""></noscript>
+<!-- End Meta Pixel Code -->
+<style>
+:root{--cream:#1A1512;--cream-2:#241D19;--text:#F3EADF;--text-2:#B0A090;--accent-text:#D4A574;--text-dark:#F3EADF;
+  --brown:#241D19;--card-dark:#2B231E;--rounded:var(--body);--display:"Bricolage Grotesque",-apple-system,sans-serif;
+  --shadow:none;--shadow-sm:none;--shadow-lg:none}
+.stat-card,.materials,.materials-panel,.results-panel .empty-state,.empty-state,.pattern-card{background:var(--bench)!important;border:1px solid var(--grain)!important;box-shadow:none!important;color:var(--linen)}
+.filter-btn{color:var(--muted)}
+.filter-btn.active{background:var(--tan)!important;color:var(--cocoa)!important;box-shadow:none!important}
+.tool-hero{background:none!important;padding-top:10px}
+.tool-hero h1{color:var(--linen)}
+.mat-search input{background:var(--bench-2);border:1px solid var(--grain);color:var(--linen)}
+.mat-search input::placeholder{color:var(--muted)}
+.mat-chip{background:var(--bench-2)!important;border:1px solid var(--grain)!important;color:var(--linen)!important}
+.mat-chip:hover{border-color:var(--tan)!important}
+.mat-chip.active{background:var(--tan)!important;color:var(--cocoa)!important;border-color:var(--tan)!important;box-shadow:none!important}
+.card-progress{background:rgba(243,234,223,.08)!important}
+.tool-hero{background:var(--bench)!important;border-radius:32px;max-width:1100px;margin:0 auto 10px}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="apple" viewBox="0 0 24 24"><path d="M16.37 1.43c0 1.14-.5 2.27-1.18 3.08-.74.9-1.99 1.57-2.99 1.57-.12 0-.23-.02-.3-.03-.01-.06-.04-.22-.04-.39 0-1.15.57-2.27 1.2-2.98.81-.94 2.15-1.64 3.25-1.68.03.13.06.28.06.43zm4.56 15.71c-.03.07-.46 1.58-1.52 3.12-.94 1.34-1.93 2.71-3.43 2.71-1.51 0-1.9-.88-3.63-.88-1.7 0-2.3.91-3.67.91-1.38 0-2.33-1.26-3.43-2.8C4 18.38 2.95 15.57 2.95 12.92c0-4.28 2.8-6.55 5.55-6.55 1.45 0 2.68.95 3.6.95.87 0 2.22-1.01 3.9-1.01.62 0 2.89.06 4.38 2.19-.13.09-2.38 1.37-2.38 4.19 0 3.26 2.85 4.42 2.95 4.45z"/></symbol>
+</svg>
+<header class="nav">
+  <nav class="nav-inner" aria-label="Main">
+    <a class="brand" href="/"><img src="/assets/v2/icon.png" alt="" width="34" height="34">Woolly Bug</a>
+    <ul class="nav-links"><li><a href="/#features">Features</a></li><li><a href="/hook-finder/">Hook Finder</a></li><li><a href="/blog/">Blog</a></li><li><a href="mailto:support@woollybug.com">Contact</a></li></ul>
+    <a class="dl appstore" href="https://apps.apple.com/gb/app/fly-tying-woolly-bug/id6757226309" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#apple"/></svg>Download</a>
+  </nav>
+</header>
+<main>
+<!-- ============ NAV ============ -->
+
+
+<div class="wrap"><div class="crumb"><a href="/">Home</a> / <span>What Can I Tie?</span></div></div>
+
+<!-- ============ HERO ============ -->
+<section class="tool-hero">
+  <div class="hero-floats">
+    <svg class="hero-float" style="left:8%;top:20%" width="80" height="80" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="38" stroke="#D4A574" stroke-width="1.5" opacity=".4"/><path d="M25 55C30 35 50 30 55 25" stroke="#D4A574" stroke-width="1" opacity=".3"/></svg>
+    <svg class="hero-float" style="right:12%;top:30%" width="60" height="60" viewBox="0 0 60 60" fill="none"><path d="M10 50Q30 10 50 40" stroke="#6B8E5A" stroke-width="1.5" opacity=".35" fill="none"/><circle cx="50" cy="40" r="4" fill="#6B8E5A" opacity=".2"/></svg>
+    <svg class="hero-float" style="left:20%;bottom:15%" width="50" height="50" viewBox="0 0 50 50" fill="none"><rect x="10" y="10" width="30" height="30" rx="8" stroke="#D4A574" stroke-width="1" opacity=".25"/></svg>
+  </div>
+  <div class="wrap hero-content">
+    <div class="hero-badge"><span class="dot"></span> Free tool</div>
+    <h1>What Can I <span class="hero-accent">Tie?</span></h1>
+    <p>Select the materials on your bench and instantly see which patterns you can tie, what you're close to, and what to buy next.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="stat-num">21</div><div class="stat-label">Patterns</div></div>
+      <div class="hero-stat"><div class="stat-num">50+</div><div class="stat-label">Materials</div></div>
+      <div class="hero-stat"><div class="stat-num">3</div><div class="stat-label">Skill levels</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TOOL ============ -->
+<section class="tool-section">
+  <div class="wrap">
+
+    <!-- Stats Dashboard -->
+    <div class="stats-dash" id="statsDash">
+      <div class="stat-card stat-ready" onclick="setMatchFilter('ready',null)" title="Patterns you can tie right now">
+        <div class="stat-val" id="statReady">0</div>
+        <div class="stat-lbl">Ready to tie</div>
+      </div>
+      <div class="stat-card stat-almost" onclick="setMatchFilter('need-1',null)" title="Just 1 material away">
+        <div class="stat-val" id="statAlmost">0</div>
+        <div class="stat-lbl">1 away</div>
+      </div>
+      <div class="stat-card stat-close" onclick="setMatchFilter('need-2',null)" title="2 materials away">
+        <div class="stat-val" id="statClose">0</div>
+        <div class="stat-lbl">2 away</div>
+      </div>
+      <div class="stat-card stat-far" onclick="setMatchFilter('need-3',null)" title="3+ materials away">
+        <div class="stat-val" id="statFar">0</div>
+        <div class="stat-lbl">3+ away</div>
+      </div>
+    </div>
+
+    <div class="tool-grid">
+      <!-- LEFT: Materials Selector -->
+      <div class="materials-panel">
+        <div class="panel-header">
+          <h2>Your Materials</h2>
+          <div class="panel-actions">
+            <button class="btn-clear" onclick="clearAll()">Clear all</button>
+            <button class="btn-starter" onclick="selectStarterKit()">Starter kit</button>
+          </div>
+        </div>
+        <div class="mat-search">
+          <svg class="search-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6.5" cy="6.5" r="5"/><line x1="10" y1="10" x2="15" y2="15"/></svg>
+          <input type="text" id="matSearch" placeholder="Search materials..." oninput="filterMaterials(this.value)">
+        </div>
+        <div id="materialsList"></div>
+        <div class="selected-count" id="selectedCount">0 materials selected</div>
+      </div>
+
+      <!-- RIGHT: Results -->
+      <div class="results-panel">
+        <div class="filters-bar">
+          <div class="filter-group" id="matchFilters">
+            <button class="filter-btn active" data-filter="all" onclick="setMatchFilter('all',this)">All</button>
+            <button class="filter-btn" data-filter="ready" onclick="setMatchFilter('ready',this)">Ready</button>
+            <button class="filter-btn" data-filter="need-1" onclick="setMatchFilter('need-1',this)">1 away</button>
+            <button class="filter-btn" data-filter="need-2" onclick="setMatchFilter('need-2',this)">2 away</button>
+            <button class="filter-btn" data-filter="need-3" onclick="setMatchFilter('need-3',this)">3+</button>
+          </div>
+          <div class="filter-group" id="diffFilters">
+            <button class="filter-btn active" data-diff="all" onclick="setDiffFilter('all',this)">All</button>
+            <button class="filter-btn" data-diff="beginner" onclick="setDiffFilter('beginner',this)">Beginner</button>
+            <button class="filter-btn" data-diff="intermediate" onclick="setDiffFilter('intermediate',this)">Inter.</button>
+            <button class="filter-btn" data-diff="advanced" onclick="setDiffFilter('advanced',this)">Advanced</button>
+          </div>
+          <div class="match-counter" id="matchCounter">0 of 21 patterns</div>
+        </div>
+
+        <div id="suggestionContainer"></div>
+        <div id="resultsContainer"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Floating results button (mobile) -->
+<button class="fab-results" id="fabResults" onclick="scrollToResults()">
+  View patterns <span class="fab-count" id="fabCount">0</span>
+</button>
+
+<!-- Confetti container -->
+<div class="confetti-container" id="confettiContainer"></div>
+
+<!-- ============ CTA ============ -->
+<section class="cta-section">
+  <div class="wrap">
+    <div class="cta-box">
+      <h2>Track your materials automatically</h2>
+      <p>Woolly Bug does this matching for you — with your actual inventory, synced across all your devices.</p>
+      <div class="cta-badges">
+        <a class="as-badge" href="https://apps.apple.com/gb/app/fly-tying-woolly-bug/id6757226309" target="_blank" rel="noopener"><img src="../assets/app-store-badge.svg" alt="Download on the App Store"></a>
+      </div>
+      <div class="cta-features">
+        <div class="cta-feat"><span class="feat-icon">&#x1F4F1;</span> iOS &amp; iPad</div>
+        <div class="cta-feat"><span class="feat-icon">&#x1F504;</span> Cloud sync</div>
+        <div class="cta-feat"><span class="feat-icon">&#x1F4F7;</span> Pattern photos</div>
+        <div class="cta-feat"><span class="feat-icon">&#x1F6D2;</span> Shopping list</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+
+
+<script>
+// ========== DATA ==========
+
+const materialCategories = [
+  {
+    id: 'hooks', label: 'Hooks', icon: '\u{1FA9D}',
+    items: [
+      { id: 'hook-dry-12-18', name: 'Dry fly (12–18)' },
+      { id: 'hook-nymph-10-16', name: 'Nymph (10–16)' },
+      { id: 'hook-streamer-4-10', name: 'Streamer (4–10)' },
+      { id: 'hook-scud', name: 'Scud / Emerger' },
+    ]
+  },
+  {
+    id: 'thread', label: 'Thread', icon: '\u{1F9F5}',
+    items: [
+      { id: 'thread-black-6', name: 'Black 6/0' },
+      { id: 'thread-black-8', name: 'Black 8/0' },
+      { id: 'thread-brown-6', name: 'Brown 6/0' },
+      { id: 'thread-olive-6', name: 'Olive 6/0' },
+      { id: 'thread-red-6', name: 'Red 6/0' },
+      { id: 'thread-white-6', name: 'White 6/0' },
+      { id: 'thread-tan-6', name: 'Tan 6/0' },
+      { id: 'thread-orange-6', name: 'Orange 6/0' },
+    ]
+  },
+  {
+    id: 'dubbing', label: 'Dubbing', icon: '\u{1F9F6}',
+    items: [
+      { id: 'dub-hares-ear', name: "Hare’s ear" },
+      { id: 'dub-pheasant-tail', name: 'Pheasant tail fibres' },
+      { id: 'dub-peacock-herl', name: 'Peacock herl' },
+      { id: 'dub-squirrel', name: 'Squirrel' },
+      { id: 'dub-slf', name: 'SLF dubbing' },
+      { id: 'dub-antron-cream', name: 'Antron (cream)' },
+      { id: 'dub-antron-olive', name: 'Antron (olive)' },
+      { id: 'dub-antron-grey', name: 'Antron (grey)' },
+      { id: 'dub-superfine-bwo', name: 'Superfine (BWO olive)' },
+      { id: 'dub-superfine-adams', name: 'Superfine (Adams grey)' },
+      { id: 'dub-red-wire-wrap', name: 'Red floss / yarn' },
+    ]
+  },
+  {
+    id: 'feathers', label: 'Feathers / Hair', icon: '\u{1FAB6}',
+    items: [
+      { id: 'hackle-grizzly', name: 'Rooster hackle (grizzly)' },
+      { id: 'hackle-brown', name: 'Rooster hackle (brown)' },
+      { id: 'hackle-black', name: 'Rooster hackle (black)' },
+      { id: 'hackle-dun', name: 'Rooster hackle (dun)' },
+      { id: 'hen-hackle', name: 'Hen hackle' },
+      { id: 'cdc', name: 'CDC feathers' },
+      { id: 'partridge', name: 'Partridge hackle' },
+      { id: 'elk-hair', name: 'Elk hair' },
+      { id: 'deer-hair', name: 'Deer hair' },
+      { id: 'marabou-olive', name: 'Marabou (olive)' },
+      { id: 'marabou-black', name: 'Marabou (black)' },
+      { id: 'marabou-white', name: 'Marabou (white)' },
+      { id: 'pheasant-tail', name: 'Pheasant tail' },
+      { id: 'turkey-biots', name: 'Turkey biots' },
+      { id: 'ostrich-herl', name: 'Ostrich herl' },
+      { id: 'calftail-white', name: 'Calf tail (white)' },
+      { id: 'woodduck-flank', name: 'Wood duck flank' },
+    ]
+  },
+  {
+    id: 'wire', label: 'Wire / Tinsel', icon: '✨',
+    items: [
+      { id: 'wire-copper', name: 'Copper wire' },
+      { id: 'wire-gold', name: 'Gold wire' },
+      { id: 'wire-silver', name: 'Silver wire' },
+      { id: 'tinsel-gold', name: 'Gold tinsel' },
+      { id: 'tinsel-pearl', name: 'Pearl tinsel' },
+      { id: 'flashabou', name: 'Flashabou' },
+    ]
+  },
+  {
+    id: 'beads', label: 'Beads / Eyes', icon: '\u{1F534}',
+    items: [
+      { id: 'bead-gold-sm', name: 'Gold bead (small)' },
+      { id: 'bead-gold-md', name: 'Gold bead (medium)' },
+      { id: 'bead-gold-lg', name: 'Gold bead (large)' },
+      { id: 'bead-brass', name: 'Brass bead' },
+      { id: 'bead-tungsten', name: 'Tungsten bead' },
+      { id: 'eyes-dumbbell', name: 'Dumbbell eyes' },
+      { id: 'cone-head', name: 'Cone head' },
+    ]
+  }
+];
+
+const patterns = [
+  { name: 'Woolly Bugger (Olive)', difficulty: 'beginner', materials: [
+    { id: 'hook-streamer-4-10', label: 'Streamer hook (4–10)' },
+    { id: 'thread-olive-6', label: 'Olive thread 6/0' },
+    { id: 'marabou-olive', label: 'Olive marabou tail' },
+    { id: 'dub-peacock-herl', label: 'Peacock herl body' },
+    { id: 'hackle-grizzly', label: 'Grizzly hackle palmered' },
+    { id: 'wire-copper', label: 'Copper wire rib' },
+  ]},
+  { name: 'Woolly Bugger (Black)', difficulty: 'beginner', materials: [
+    { id: 'hook-streamer-4-10', label: 'Streamer hook (4–10)' },
+    { id: 'thread-black-6', label: 'Black thread 6/0' },
+    { id: 'marabou-black', label: 'Black marabou tail' },
+    { id: 'dub-peacock-herl', label: 'Peacock herl body' },
+    { id: 'hackle-black', label: 'Black hackle palmered' },
+    { id: 'wire-copper', label: 'Copper wire rib' },
+  ]},
+  { name: 'Pheasant Tail Nymph', difficulty: 'intermediate', materials: [
+    { id: 'hook-nymph-10-16', label: 'Nymph hook (10–16)' },
+    { id: 'thread-brown-6', label: 'Brown thread 6/0' },
+    { id: 'pheasant-tail', label: 'Pheasant tail fibres' },
+    { id: 'wire-copper', label: 'Copper wire rib' },
+    { id: 'dub-peacock-herl', label: 'Peacock herl thorax' },
+  ]},
+  { name: 'Elk Hair Caddis', difficulty: 'intermediate', materials: [
+    { id: 'hook-dry-12-18', label: 'Dry fly hook (12–18)' },
+    { id: 'thread-tan-6', label: 'Tan thread 6/0' },
+    { id: 'dub-hares-ear', label: "Hare’s ear dubbing body" },
+    { id: 'hackle-brown', label: 'Brown rooster hackle' },
+    { id: 'elk-hair', label: 'Elk hair wing' },
+    { id: 'wire-gold', label: 'Gold wire rib' },
+  ]},
+  { name: "Gold-Ribbed Hare’s Ear", difficulty: 'intermediate', materials: [
+    { id: 'hook-nymph-10-16', label: 'Nymph hook (10–16)' },
+    { id: 'thread-brown-6', label: 'Brown thread 6/0' },
+    { id: 'dub-hares-ear', label: "Hare’s ear dubbing" },
+    { id: 'pheasant-tail', label: 'Pheasant tail (tail)' },
+    { id: 'tinsel-gold', label: 'Gold tinsel rib' },
+    { id: 'bead-gold-md', label: 'Gold bead head' },
+  ]},
+  { name: 'Adams', difficulty: 'intermediate', materials: [
+    { id: 'hook-dry-12-18', label: 'Dry fly hook (12–18)' },
+    { id: 'thread-black-8', label: 'Black thread 8/0' },
+    { id: 'hackle-grizzly', label: 'Grizzly hackle' },
+    { id: 'hackle-brown', label: 'Brown hackle' },
+    { id: 'dub-superfine-adams', label: 'Grey dubbing body' },
+    { id: 'hackle-grizzly', label: 'Grizzly hackle tail' },
+  ]},
+  { name: "Griffith’s Gnat", difficulty: 'beginner', materials: [
+    { id: 'hook-dry-12-18', label: 'Dry fly hook (18–22)' },
+    { id: 'thread-black-8', label: 'Black thread 8/0' },
+    { id: 'dub-peacock-herl', label: 'Peacock herl body' },
+    { id: 'hackle-grizzly', label: 'Grizzly hackle palmered' },
+  ]},
+  { name: 'Copper John', difficulty: 'intermediate', materials: [
+    { id: 'hook-nymph-10-16', label: 'Nymph hook (10–16)' },
+    { id: 'thread-black-6', label: 'Black thread 6/0' },
+    { id: 'wire-copper', label: 'Copper wire body' },
+    { id: 'turkey-biots', label: 'Turkey biot tail' },
+    { id: 'dub-peacock-herl', label: 'Peacock herl thorax' },
+    { id: 'flashabou', label: 'Flashabou wingcase' },
+    { id: 'bead-gold-md', label: 'Gold bead head' },
+  ]},
+  { name: 'Prince Nymph', difficulty: 'intermediate', materials: [
+    { id: 'hook-nymph-10-16', label: 'Nymph hook (10–16)' },
+    { id: 'thread-black-6', label: 'Black thread 6/0' },
+    { id: 'dub-peacock-herl', label: 'Peacock herl body' },
+    { id: 'turkey-biots', label: 'Turkey biot tails & horns' },
+    { id: 'tinsel-gold', label: 'Gold tinsel rib' },
+    { id: 'bead-gold-md', label: 'Gold bead head' },
+  ]},
+  { name: 'Zebra Midge', difficulty: 'beginner', materials: [
+    { id: 'hook-scud', label: 'Scud / emerger hook' },
+    { id: 'thread-black-8', label: 'Black thread 8/0' },
+    { id: 'wire-silver', label: 'Silver wire rib' },
+    { id: 'bead-gold-sm', label: 'Small gold bead' },
+  ]},
+  { name: 'Stimulator', difficulty: 'advanced', materials: [
+    { id: 'hook-dry-12-18', label: 'Dry fly hook (8–14)' },
+    { id: 'thread-orange-6', label: 'Orange thread 6/0' },
+    { id: 'elk-hair', label: 'Elk hair tail & wing' },
+    { id: 'hackle-grizzly', label: 'Grizzly hackle' },
+    { id: 'hackle-brown', label: 'Brown hackle' },
+    { id: 'dub-antron-cream', label: 'Antron dubbing abdomen' },
+    { id: 'wire-gold', label: 'Gold wire rib' },
+  ]},
+  { name: 'Parachute Adams', difficulty: 'advanced', materials: [
+    { id: 'hook-dry-12-18', label: 'Dry fly hook (12–18)' },
+    { id: 'thread-black-8', label: 'Black thread 8/0' },
+    { id: 'hackle-grizzly', label: 'Grizzly hackle' },
+    { id: 'hackle-brown', label: 'Brown hackle mixed' },
+    { id: 'dub-superfine-adams', label: 'Grey dubbing body' },
+    { id: 'calftail-white', label: 'White calf tail post' },
+  ]},
+  { name: 'Clouser Minnow', difficulty: 'intermediate', materials: [
+    { id: 'hook-streamer-4-10', label: 'Streamer hook (2–8)' },
+    { id: 'thread-white-6', label: 'White thread 6/0' },
+    { id: 'eyes-dumbbell', label: 'Dumbbell eyes' },
+    { id: 'marabou-white', label: 'White bucktail / marabou' },
+    { id: 'flashabou', label: 'Flashabou flash' },
+  ]},
+  { name: 'Muddler Minnow', difficulty: 'advanced', materials: [
+    { id: 'hook-streamer-4-10', label: 'Streamer hook (4–10)' },
+    { id: 'thread-brown-6', label: 'Brown thread 6/0' },
+    { id: 'deer-hair', label: 'Deer hair head & collar' },
+    { id: 'turkey-biots', label: 'Turkey wing slips' },
+    { id: 'tinsel-gold', label: 'Gold tinsel body' },
+  ]},
+  { name: 'San Juan Worm', difficulty: 'beginner', materials: [
+    { id: 'hook-scud', label: 'Scud / emerger hook' },
+    { id: 'thread-red-6', label: 'Red thread 6/0' },
+    { id: 'dub-red-wire-wrap', label: 'Red chenille / yarn body' },
+  ]},
+  { name: 'RS2', difficulty: 'intermediate', materials: [
+    { id: 'hook-scud', label: 'Scud / emerger hook' },
+    { id: 'thread-black-8', label: 'Black thread 8/0' },
+    { id: 'dub-antron-grey', label: 'Grey Antron dubbing' },
+    { id: 'cdc', label: 'CDC wing' },
+  ]},
+  { name: 'Soft Hackle (Partridge & Orange)', difficulty: 'beginner', materials: [
+    { id: 'hook-nymph-10-16', label: 'Nymph hook (12–16)' },
+    { id: 'thread-orange-6', label: 'Orange thread 6/0' },
+    { id: 'partridge', label: 'Partridge hackle collar' },
+    { id: 'dub-hares-ear', label: "Hare’s ear dubbing thorax" },
+  ]},
+  { name: 'Blue Wing Olive', difficulty: 'intermediate', materials: [
+    { id: 'hook-dry-12-18', label: 'Dry fly hook (16–20)' },
+    { id: 'thread-olive-6', label: 'Olive thread 6/0' },
+    { id: 'dub-superfine-bwo', label: 'BWO olive dubbing body' },
+    { id: 'hackle-dun', label: 'Dun hackle' },
+    { id: 'cdc', label: 'CDC or dun hackle tip wings' },
+  ]},
+  { name: 'Royal Wulff', difficulty: 'advanced', materials: [
+    { id: 'hook-dry-12-18', label: 'Dry fly hook (10–16)' },
+    { id: 'thread-black-6', label: 'Black thread 6/0' },
+    { id: 'calftail-white', label: 'White calf tail wings' },
+    { id: 'dub-peacock-herl', label: 'Peacock herl body' },
+    { id: 'dub-red-wire-wrap', label: 'Red floss band' },
+    { id: 'hackle-brown', label: 'Brown hackle collar' },
+    { id: 'elk-hair', label: 'Elk hair / moose tail' },
+  ]},
+  { name: 'Black Gnat', difficulty: 'beginner', materials: [
+    { id: 'hook-dry-12-18', label: 'Dry fly hook (14–18)' },
+    { id: 'thread-black-8', label: 'Black thread 8/0' },
+    { id: 'hackle-black', label: 'Black hackle' },
+    { id: 'dub-antron-grey', label: 'Black / dark grey dubbing' },
+  ]},
+  { name: 'Brassie', difficulty: 'beginner', materials: [
+    { id: 'hook-scud', label: 'Scud / emerger hook' },
+    { id: 'thread-black-8', label: 'Black thread 8/0' },
+    { id: 'wire-copper', label: 'Copper wire body' },
+    { id: 'dub-peacock-herl', label: 'Peacock herl collar' },
+  ]},
+];
+
+// ========== STATE ==========
+
+let selectedMaterials = new Set();
+let matchFilter = 'all';
+let diffFilter = 'all';
+let prevReadyCount = 0;
+let hasConfettied = false;
+
+const starterKit = [
+  'hook-dry-12-18','hook-nymph-10-16','hook-scud',
+  'thread-black-6','thread-black-8','thread-brown-6','thread-olive-6',
+  'dub-hares-ear','dub-peacock-herl',
+  'hackle-grizzly','hackle-brown','pheasant-tail','elk-hair',
+  'wire-copper','wire-gold',
+  'bead-gold-md',
+];
+
+// ========== RENDER MATERIALS ==========
+
+const collapsedCats = new Set();
+const isMobile = () => window.innerWidth <= 900;
+
+function renderMaterials() {
+  const container = document.getElementById('materialsList');
+  container.innerHTML = materialCategories.map(cat => {
+    const selectedInCat = cat.items.filter(m => selectedMaterials.has(m.id)).length;
+    const isCollapsed = collapsedCats.has(cat.id);
+    return `
+    <div class="mat-category${isCollapsed ? ' collapsed' : ''}" data-cat="${cat.id}">
+      <div class="cat-label" onclick="toggleCategory('${cat.id}')">
+        <span class="cat-icon">${cat.icon}</span> ${cat.label}
+        ${selectedInCat > 0 ? `<span class="cat-count">${selectedInCat}</span>` : ''}
+        <span class="cat-toggle">▾</span>
+      </div>
+      <div class="mat-chips">
+        ${cat.items.map(m => `
+          <div class="mat-chip${selectedMaterials.has(m.id) ? ' active' : ''}"
+               data-id="${m.id}" data-name="${m.name.toLowerCase()}"
+               onclick="toggleMaterial('${m.id}', this)"
+               role="checkbox" aria-checked="${selectedMaterials.has(m.id)}"
+               tabindex="0">${m.name}</div>
+        `).join('')}
+      </div>
+    </div>`;
+  }).join('');
+  updateSelectedCount();
+}
+
+function toggleCategory(catId) {
+  if (collapsedCats.has(catId)) collapsedCats.delete(catId);
+  else collapsedCats.add(catId);
+  const el = document.querySelector('.mat-category[data-cat="'+catId+'"]');
+  if (el) el.classList.toggle('collapsed');
+}
+
+function toggleMaterial(id, el) {
+  if (selectedMaterials.has(id)) {
+    selectedMaterials.delete(id);
+    el.classList.remove('active');
+    el.setAttribute('aria-checked','false');
+  } else {
+    selectedMaterials.add(id);
+    el.classList.add('active');
+    el.setAttribute('aria-checked','true');
+  }
+  updateSelectedCount();
+  renderResults();
+}
+
+function clearAll() {
+  selectedMaterials.clear();
+  hasConfettied = false;
+  prevReadyCount = 0;
+  renderMaterials();
+  renderResults();
+}
+
+function selectStarterKit() {
+  selectedMaterials.clear();
+  hasConfettied = false;
+  prevReadyCount = 0;
+  starterKit.forEach(id => selectedMaterials.add(id));
+  renderMaterials();
+  renderResults();
+}
+
+function updateSelectedCount() {
+  const el = document.getElementById('selectedCount');
+  const n = selectedMaterials.size;
+  el.textContent = n + ' material' + (n !== 1 ? 's' : '') + ' selected';
+}
+
+// ========== SEARCH ==========
+
+function filterMaterials(query) {
+  const q = query.toLowerCase().trim();
+  document.querySelectorAll('.mat-chip').forEach(chip => {
+    const name = chip.getAttribute('data-name');
+    chip.classList.toggle('search-hidden', q && !name.includes(q));
+  });
+  // Auto-expand categories that have matching results
+  if (q) {
+    materialCategories.forEach(cat => {
+      const hasMatch = cat.items.some(m => m.name.toLowerCase().includes(q));
+      const el = document.querySelector('.mat-category[data-cat="'+cat.id+'"]');
+      if (el && hasMatch) el.classList.remove('collapsed');
+    });
+  }
+}
+
+// ========== MATCHING ==========
+
+function getPatternMatch(pattern) {
+  const uniqueIds = [...new Set(pattern.materials.map(m => m.id))];
+  const have = uniqueIds.filter(id => selectedMaterials.has(id));
+  const missing = uniqueIds.filter(id => !selectedMaterials.has(id));
+  return { total: uniqueIds.length, haveCount: have.length, missingCount: missing.length, haveSet: new Set(have), missingSet: new Set(missing) };
+}
+
+// ========== FILTERS ==========
+
+function setMatchFilter(f, btn) {
+  matchFilter = f;
+  document.querySelectorAll('#matchFilters .filter-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  else {
+    const target = document.querySelector('#matchFilters .filter-btn[data-filter="'+f+'"]');
+    if (target) target.classList.add('active');
+  }
+  // Highlight active stat card
+  document.querySelectorAll('.stat-card').forEach(c => c.classList.remove('active'));
+  if (f !== 'all') {
+    const map = {'ready':0,'need-1':1,'need-2':2,'need-3':3};
+    const cards = document.querySelectorAll('.stat-card');
+    if (cards[map[f]]) cards[map[f]].classList.add('active');
+  }
+  renderResults();
+}
+
+function setDiffFilter(f, btn) {
+  diffFilter = f;
+  document.querySelectorAll('#diffFilters .filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderResults();
+}
+
+// ========== CONFETTI ==========
+
+function fireConfetti() {
+  const container = document.getElementById('confettiContainer');
+  const colors = ['#6B8E5A','#D4A574','#C4955A','#D4A534','#8AB077','#E8C9A0'];
+  for (let i = 0; i < 40; i++) {
+    const el = document.createElement('div');
+    el.className = 'confetti';
+    el.style.left = (Math.random() * 100) + '%';
+    el.style.background = colors[Math.floor(Math.random() * colors.length)];
+    el.style.animationDelay = (Math.random() * 0.6) + 's';
+    el.style.animationDuration = (1.8 + Math.random() * 1.5) + 's';
+    el.style.width = (6 + Math.random() * 6) + 'px';
+    el.style.height = (6 + Math.random() * 6) + 'px';
+    container.appendChild(el);
+    setTimeout(() => el.remove(), 3000);
+  }
+}
+
+// ========== SUGGESTIONS ==========
+
+function getSuggestion(scored) {
+  if (selectedMaterials.size === 0) return null;
+  // Find the material that would unlock the most patterns if added
+  const allMissing = {};
+  scored.forEach(p => {
+    if (p.match.missingCount === 1) {
+      p.match.missingSet.forEach(id => {
+        if (!allMissing[id]) allMissing[id] = [];
+        allMissing[id].push(p.name);
+      });
+    }
+  });
+  let bestId = null, bestPatterns = [];
+  Object.entries(allMissing).forEach(([id, names]) => {
+    if (names.length > bestPatterns.length) { bestId = id; bestPatterns = names; }
+  });
+  if (!bestId || bestPatterns.length < 1) return null;
+  // Find material name
+  let matName = bestId;
+  materialCategories.forEach(cat => {
+    cat.items.forEach(m => { if (m.id === bestId) matName = m.name; });
+  });
+  return { id: bestId, name: matName, patterns: bestPatterns };
+}
+
+// ========== STATS ==========
+
+function updateStats(scored) {
+  const counts = {ready:0, need1:0, need2:0, need3:0};
+  scored.forEach(p => {
+    if (p.match.missingCount === 0) counts.ready++;
+    else if (p.match.missingCount === 1) counts.need1++;
+    else if (p.match.missingCount === 2) counts.need2++;
+    else counts.need3++;
+  });
+
+  const animate = (id, val) => {
+    const el = document.getElementById(id);
+    const old = parseInt(el.textContent) || 0;
+    if (old !== val) {
+      el.textContent = val;
+      el.classList.add('pop');
+      setTimeout(() => el.classList.remove('pop'), 300);
+    }
+  };
+  animate('statReady', counts.ready);
+  animate('statAlmost', counts.need1);
+  animate('statClose', counts.need2);
+  animate('statFar', counts.need3);
+
+  // Confetti on first ready pattern
+  if (counts.ready > 0 && prevReadyCount === 0 && !hasConfettied && selectedMaterials.size > 0) {
+    fireConfetti();
+    hasConfettied = true;
+  }
+  prevReadyCount = counts.ready;
+}
+
+// ========== RENDER RESULTS ==========
+
+function renderResults() {
+  const container = document.getElementById('resultsContainer');
+  const counterEl = document.getElementById('matchCounter');
+  const sugContainer = document.getElementById('suggestionContainer');
+
+  let scored = patterns.map(p => ({ ...p, match: getPatternMatch(p) }));
+  scored.sort((a, b) => {
+    if (a.match.missingCount !== b.match.missingCount) return a.match.missingCount - b.match.missingCount;
+    return a.name.localeCompare(b.name);
+  });
+
+  updateStats(scored);
+
+  // Suggestion
+  const sug = getSuggestion(scored);
+  if (sug && sug.patterns.length > 1) {
+    sugContainer.innerHTML = `
+      <div class="suggestion-bar">
+        <span class="sug-icon">\u{1F4A1}</span>
+        <span>Add <strong>${sug.name}</strong> to unlock ${sug.patterns.length} more pattern${sug.patterns.length>1?'s':''}</span>
+        <button class="sug-action" onclick="addSuggested('${sug.id}')">Add it</button>
+      </div>`;
+  } else {
+    sugContainer.innerHTML = '';
+  }
+
+  // Apply filters
+  let filtered = scored;
+  if (matchFilter === 'ready') filtered = filtered.filter(p => p.match.missingCount === 0);
+  else if (matchFilter === 'need-1') filtered = filtered.filter(p => p.match.missingCount === 1);
+  else if (matchFilter === 'need-2') filtered = filtered.filter(p => p.match.missingCount === 2);
+  else if (matchFilter === 'need-3') filtered = filtered.filter(p => p.match.missingCount >= 3);
+  if (diffFilter !== 'all') filtered = filtered.filter(p => p.difficulty === diffFilter);
+
+  counterEl.textContent = filtered.length + ' of ' + patterns.length + ' patterns';
+  updateFab();
+
+  if (selectedMaterials.size === 0) {
+    container.innerHTML = `
+      <div class="empty-state">
+        <div class="empty-icon-wrap"><span class="empty-icon">\u{1FAB6}</span></div>
+        <h3>Select your materials</h3>
+        <p>Choose materials from the panel to see which patterns you can tie. Or try the starter kit.</p>
+        <button class="btn btn-accent" onclick="selectStarterKit()">Try starter kit</button>
+      </div>`;
+    return;
+  }
+
+  if (filtered.length === 0) {
+    container.innerHTML = `
+      <div class="empty-state">
+        <div class="empty-icon-wrap"><span class="empty-icon">\u{1F50D}</span></div>
+        <h3>No patterns match</h3>
+        <p>Try a different filter or select more materials to unlock patterns.</p>
+      </div>`;
+    return;
+  }
+
+  const CIRC = 2 * Math.PI * 20; // ring circumference
+
+  container.innerHTML = '<div class="results-grid">' + filtered.map((p, i) => {
+    const m = p.match;
+    const pct = m.total > 0 ? Math.round((m.haveCount / m.total) * 100) : 0;
+    const offset = CIRC - (CIRC * pct / 100);
+    let ringClass, progClass, accentClass, tagClass, tagText;
+
+    if (m.missingCount === 0) {
+      ringClass='ring-ready'; progClass='prog-ready'; accentClass='accent-ready';
+      tagClass='tag-ready'; tagText='Ready to tie';
+    } else if (m.missingCount === 1) {
+      ringClass='ring-need-1'; progClass='prog-need-1'; accentClass='accent-need-1';
+      tagClass='tag-need-1'; tagText='Need 1 more';
+    } else if (m.missingCount === 2) {
+      ringClass='ring-need-2'; progClass='prog-need-2'; accentClass='accent-need-2';
+      tagClass='tag-need-2'; tagText='Need 2 more';
+    } else {
+      ringClass='ring-need-3'; progClass='prog-need-3'; accentClass='accent-need-3';
+      tagClass='tag-need-3'; tagText='Need ' + m.missingCount + ' more';
+    }
+
+    const diffClass = 'diff-' + p.difficulty;
+    const diffLabel = p.difficulty.charAt(0).toUpperCase() + p.difficulty.slice(1);
+
+    const seen = new Set();
+    const uniqueMats = p.materials.filter(mat => { if (seen.has(mat.id)) return false; seen.add(mat.id); return true; });
+
+    const matsHTML = uniqueMats.map(mat => {
+      const have = selectedMaterials.has(mat.id);
+      return `<div class="card-mat">
+        <div class="mat-status ${have?'mat-have':'mat-miss'}">${have?'✓':'✗'}</div>
+        <span class="mat-name${have?'':' missing'}">${mat.label}</span>
+      </div>`;
+    }).join('');
+
+    return `
+      <div class="pattern-card${m.missingCount===0?' card-ready':''}" style="animation-delay:${i*0.05}s">
+        <div class="card-accent ${accentClass}"></div>
+        <div class="card-header">
+          <div class="card-info">
+            <h3>${p.name}</h3>
+            <div class="card-meta">
+              <span class="card-difficulty ${diffClass}">${diffLabel}</span>
+              <span class="card-tag ${tagClass}">${tagText}</span>
+            </div>
+          </div>
+          <div class="card-ring">
+            <svg viewBox="0 0 44 44">
+              <circle class="ring-bg" cx="22" cy="22" r="20"/>
+              <circle class="${ringClass} ring-fill" cx="22" cy="22" r="20"
+                stroke-dasharray="${CIRC}" stroke-dashoffset="${offset}"/>
+            </svg>
+            <div class="ring-pct">${pct}%</div>
+          </div>
+        </div>
+        <div class="card-progress"><div class="card-progress-fill ${progClass}" style="width:${pct}%"></div></div>
+        <div class="card-materials">${matsHTML}</div>
+      </div>`;
+  }).join('') + '</div>';
+}
+
+function addSuggested(id) {
+  selectedMaterials.add(id);
+  renderMaterials();
+  renderResults();
+}
+
+// ========== FAB & SCROLL ==========
+
+function scrollToResults() {
+  document.querySelector('.results-panel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function updateFab() {
+  const fab = document.getElementById('fabResults');
+  const fabCount = document.getElementById('fabCount');
+  if (!fab) return;
+  const readyCount = patterns.filter(p => {
+    const ids = [...new Set(p.materials.map(m => m.id))];
+    return ids.every(id => selectedMaterials.has(id));
+  }).length;
+  fabCount.textContent = readyCount;
+  fab.style.display = (selectedMaterials.size > 0 && isMobile()) ? 'flex' : 'none';
+}
+
+// ========== INIT ==========
+
+if (isMobile()) {
+  materialCategories.forEach(cat => {
+    if (cat.id !== 'hooks' && cat.id !== 'thread') collapsedCats.add(cat.id);
+  });
+}
+
+renderMaterials();
+renderResults();
+
+// Keyboard
+document.addEventListener('keydown', function(e) {
+  if (e.target.classList.contains('mat-chip') && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); e.target.click(); }
+});
+
+window.addEventListener('resize', function() { updateFab(); });
+</script>
+
+</main>
+<footer>
+  <div class="wrap">
+    <span>© 2026 Woolly Bug</span>
+    <ul>
+      <li><a href="/hook-finder/">Hook Finder</a></li>
+      <li><a href="/hooks/">Hook reference</a></li>
+      <li><a href="/tools/what-can-i-tie.html">What can I tie?</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="https://www.facebook.com/woollybuginventory" target="_blank" rel="noopener">Facebook</a></li>
+      <li><a href="mailto:support@woollybug.com">Contact</a></li>
+      <li><a href="/privacy.html">Privacy</a></li>
+      <li><a href="/terms.html">Terms</a></li>
+    </ul>
+  </div>
+</footer>
+<script>
+document.querySelectorAll('a[href*="apps.apple.com"]').forEach(function(a){
+  a.addEventListener('click',function(){ if(window.fbq) fbq('trackCustom','AppStoreClick'); });
+});
+</script>
+</body>
+</html>
