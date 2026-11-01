@@ -57,7 +57,9 @@
 }
 </script>
 <meta name="apple-itunes-app" content="app-id=6757226309">
-<meta name="theme-color" content="#1A1512">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#FEF7EF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1A1512" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/assets/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
@@ -192,10 +194,6 @@ alt=""></noscript>
     </ul>
   </div>
 </footer>
-<script>
-document.querySelectorAll('a[href*="apps.apple.com"]').forEach(function(a){
-  a.addEventListener('click',function(){ if(window.fbq) fbq('trackCustom','AppStoreClick'); });
-});
-</script>
+<script src="/assets/v2/analytics.js" defer></script>
 </body>
 </html>

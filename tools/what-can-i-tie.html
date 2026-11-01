@@ -97,7 +97,7 @@ img{max-width:100%;display:block}
 .hero-badge{
   display:inline-flex;align-items:center;gap:8px;
   font-family:var(--mono);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;
-  color:var(--accent);
+  color:var(--accent-text);
   background:rgba(212,165,116,.12);
   border:1px solid rgba(212,165,116,.2);
   padding:8px 18px;border-radius:999px;
@@ -117,7 +117,7 @@ img{max-width:100%;display:block}
   background-clip:text;
 }
 .tool-hero p{
-  color:#bcae9c;
+  color:var(--muted);
   font-size:18px;
   max-width:580px;
   margin:20px auto 0;
@@ -130,10 +130,10 @@ img{max-width:100%;display:block}
 .hero-stat{text-align:center}
 .hero-stat .stat-num{
   font-family:var(--display);font-size:32px;font-weight:800;
-  color:var(--accent);line-height:1;
+  color:var(--accent-text);line-height:1;
 }
 .hero-stat .stat-label{
-  font-size:12px;font-weight:700;color:#8e8170;text-transform:uppercase;letter-spacing:.8px;margin-top:4px;
+  font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-top:4px;
 }
 
 /* Floating elements */
@@ -246,7 +246,7 @@ img{max-width:100%;display:block}
 }
 .cat-label:hover{background:rgba(212,165,116,.08)}
 .cat-label .cat-icon{font-size:16px}
-.cat-toggle{margin-left:auto;font-size:12px;transition:transform .25s cubic-bezier(.34,1.56,.64,1);color:var(--accent)}
+.cat-toggle{margin-left:auto;font-size:12px;transition:transform .25s cubic-bezier(.34,1.56,.64,1);color:var(--accent-text)}
 .mat-category.collapsed .cat-toggle{transform:rotate(-90deg)}
 .cat-count{
   font-family:var(--mono);font-size:10px;font-weight:700;
@@ -481,14 +481,14 @@ img{max-width:100%;display:block}
 }
 .cta-box>*{position:relative;z-index:1}
 .cta-box h2{font-size:clamp(26px,3.5vw,40px);color:var(--text-dark)}
-.cta-box p{color:#bcae9c;font-size:17px;margin:16px auto 32px;max-width:480px;font-weight:500;line-height:1.7}
+.cta-box p{color:var(--muted);font-size:17px;margin:16px auto 32px;max-width:480px;font-weight:500;line-height:1.7}
 .cta-badges{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
 .cta-features{
   display:flex;justify-content:center;gap:32px;margin-top:32px;flex-wrap:wrap;
 }
 .cta-feat{
   display:flex;align-items:center;gap:8px;
-  font-size:13px;font-weight:600;color:#bcae9c;
+  font-size:13px;font-weight:600;color:var(--muted);
 }
 .cta-feat .feat-icon{font-size:16px}
 
@@ -564,7 +564,9 @@ img{max-width:100%;display:block}
 }
 </style>
 <meta name="apple-itunes-app" content="app-id=6757226309">
-<meta name="theme-color" content="#1A1512">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#FEF7EF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1A1512" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/assets/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
@@ -592,20 +594,20 @@ src="https://www.facebook.com/tr?id=4734392100122041&amp;ev=PageView&amp;noscrip
 alt=""></noscript>
 <!-- End Meta Pixel Code -->
 <style>
-:root{--cream:#1A1512;--cream-2:#241D19;--text:#F3EADF;--text-2:#B0A090;--accent-text:#D4A574;--text-dark:#F3EADF;
-  --brown:#241D19;--card-dark:#2B231E;--rounded:var(--body);--display:"Bricolage Grotesque",-apple-system,sans-serif;
+:root{--cream:var(--peat);--cream-2:var(--bench);--text:var(--linen);--text-2:var(--muted);--accent:var(--tan-fill);--accent-text:var(--tan);--text-dark:var(--linen);
+  --brown:var(--bench);--card-dark:var(--bench-2);--rounded:var(--body);--display:"Bricolage Grotesque",-apple-system,sans-serif;
   --shadow:none;--shadow-sm:none;--shadow-lg:none}
 .stat-card,.materials,.materials-panel,.results-panel .empty-state,.empty-state,.pattern-card{background:var(--bench)!important;border:1px solid var(--grain)!important;box-shadow:none!important;color:var(--linen)}
 .filter-btn{color:var(--muted)}
-.filter-btn.active{background:var(--tan)!important;color:var(--cocoa)!important;box-shadow:none!important}
+.filter-btn.active{background:var(--tan-fill)!important;color:var(--cocoa)!important;box-shadow:none!important}
 .tool-hero{background:none!important;padding-top:10px}
 .tool-hero h1{color:var(--linen)}
 .mat-search input{background:var(--bench-2);border:1px solid var(--grain);color:var(--linen)}
 .mat-search input::placeholder{color:var(--muted)}
 .mat-chip{background:var(--bench-2)!important;border:1px solid var(--grain)!important;color:var(--linen)!important}
 .mat-chip:hover{border-color:var(--tan)!important}
-.mat-chip.active{background:var(--tan)!important;color:var(--cocoa)!important;border-color:var(--tan)!important;box-shadow:none!important}
-.card-progress{background:rgba(243,234,223,.08)!important}
+.mat-chip.active{background:var(--tan-fill)!important;color:var(--cocoa)!important;border-color:var(--tan-fill)!important;box-shadow:none!important}
+.card-progress{background:var(--tint-line)!important}
 .tool-hero{background:var(--bench)!important;border-radius:32px;max-width:1100px;margin:0 auto 10px}
 </style>
 </head>
@@ -1393,10 +1395,6 @@ window.addEventListener('resize', function() { updateFab(); });
     </ul>
   </div>
 </footer>
-<script>
-document.querySelectorAll('a[href*="apps.apple.com"]').forEach(function(a){
-  a.addEventListener('click',function(){ if(window.fbq) fbq('trackCustom','AppStoreClick'); });
-});
-</script>
+<script src="/assets/v2/analytics.js" defer></script>
 </body>
 </html>
